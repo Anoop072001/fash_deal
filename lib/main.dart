@@ -15,25 +15,30 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey[850],
-        appBar: AppBar(
-          title: Text("FlashSales"),
-          backgroundColor: Colors.red[500],
-        ),
-        body: Container(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
+      backgroundColor: Colors.grey[850],
+      body: Column(
+        children: [
+          Center(
+            child: Container(
+              height: 50,
+              decoration: BoxDecoration(
+                borderRadius:
+                    BorderRadius.only(bottomLeft: Radius.circular(40.0)),
+                color: Colors.red[400],
+              ),
+              child: Center(
                 child: Text(
                   "Hello",
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontSize: 20.0,
                   ),
                 ),
-            ],
+              ),
+            ),
           ),
-        ));
+        ],
+      ),
+    );
   }
 }
