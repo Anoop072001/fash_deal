@@ -16,38 +16,47 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey[850],
-        body: Row(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.account_circle_outlined),
+          color: Colors.orange,
+          iconSize: 40.0,
+          onPressed: () {},
+        ),
+        title: Text(
+          "FashDeal",
+          style: TextStyle(
+            fontSize: 20.0,
+            fontWeight: FontWeight.bold,
+            color: Colors.orange,
+          ),
+        ),
+        backgroundColor: Colors.white,
+      ),
+      body: Container(
+        constraints: BoxConstraints.expand(),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/double-bubble-outline.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
-              alignment: Alignment.center,
-              width: MediaQuery.of(context).size.width,
-              height: 50,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(20.0),
-                    bottomRight: Radius.circular(20.0)),
-                color: Colors.red,
-              ),
-              child: Row(children: [
-                IconButton(
-                    icon: Icon(
-                      Icons.arrow_back,
-                      color: Colors.white,
-                    ),
-                    onPressed: () {}),
-                Text(
-                  "FashDeal",
-                  style: TextStyle(
-                    fontSize: 40.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
+              child: Text(
+                "Categories",
+                style: TextStyle(
+                  color: Colors.orange,
+                  fontSize: 40.0,
+                  fontWeight: FontWeight.bold,
                 ),
-              ]),
-            ),
+              ),
+            )
           ],
-        ));
+        ),
+      ),
+    );
   }
 }
