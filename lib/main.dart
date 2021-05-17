@@ -41,18 +41,24 @@ class _MyAppState extends State<MyApp> {
             fit: BoxFit.cover,
           ),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              child: Text(
-                "Categories",
-                style: TextStyle(
-                  color: Colors.orange,
-                  fontSize: 40.0,
-                  fontWeight: FontWeight.bold,
+            GestureDetector(
+              child: Container(
+                width: 50,
+                height: 50,
+                child: Column(
+                  children: [
+                    Container(
+                        child: Image(image: AssetImage('assets/shirt.png'))),
+                    Container(child: Text("All")),
+                  ],
                 ),
               ),
+              onTap: () {
+                print("Clicked");
+              },
             )
           ],
         ),
