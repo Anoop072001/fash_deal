@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "754633180641",
+    "project_id": "fash-deal",
+    "storage_bucket": "fash-deal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:754633180641:android:11f406705319e33aaf3ea0",
+        "android_client_info": {
+          "package_name": "com.example.shopping_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "754633180641-bdgk5m24o2116202mmm7cmecibub4tiq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwswxvzlGnfdvlVlVYiR1SNAPeRTuh5fI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "754633180641-bdgk5m24o2116202mmm7cmecibub4tiq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
