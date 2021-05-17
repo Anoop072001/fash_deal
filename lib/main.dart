@@ -32,6 +32,7 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
         backgroundColor: Colors.white,
+        elevation: 2.0,
       ),
       body: Container(
         constraints: BoxConstraints.expand(),
@@ -41,25 +42,146 @@ class _MyAppState extends State<MyApp> {
             fit: BoxFit.cover,
           ),
         ),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Column(
           children: [
-            GestureDetector(
-              child: Container(
-                width: 50,
-                height: 50,
-                child: Column(
-                  children: [
-                    Container(
-                        child: Image(image: AssetImage('assets/shirt.png'))),
-                    Container(child: Text("All")),
-                  ],
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: GestureDetector(
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      child: Column(
+                        children: [
+                          Container(
+                              width: 30,
+                              height: 30,
+                              child:
+                                  Image(image: AssetImage('assets/shirt.png'))),
+                          Container(
+                              child: Text(
+                            "All",
+                            style: TextStyle(
+                              fontSize: 12.0,
+                            ),
+                          )),
+                        ],
+                      ),
+                    ),
+                    onTap: () {
+                      print("Clicked");
+                    },
+                  ),
                 ),
-              ),
-              onTap: () {
-                print("Clicked");
-              },
-            )
+                Expanded(
+                  flex: 1,
+                  child: GestureDetector(
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      child: Column(
+                        children: [
+                          Container(
+                              width: 30,
+                              height: 30,
+                              child:
+                                  Image(image: AssetImage('assets/mens.png'))),
+                          Container(
+                              child: Text(
+                            "Men's",
+                            style: TextStyle(
+                              fontSize: 12.0,
+                            ),
+                          )),
+                        ],
+                      ),
+                    ),
+                    onTap: () {
+                      print("Clicked 1");
+                    },
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: GestureDetector(
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      child: Column(
+                        children: [
+                          Container(
+                              width: 30,
+                              height: 30,
+                              child: Image(
+                                  image: AssetImage('assets/womens.png'))),
+                          Container(
+                            child: Text(
+                              "Women's",
+                              style: TextStyle(
+                                fontSize: 12.0,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onTap: () {
+                      print("Clicked 2");
+                    },
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: GestureDetector(
+                    child: Container(
+                      width: 60,
+                      height: 50,
+                      child: Column(
+                        children: [
+                          Container(
+                              width: 30,
+                              height: 30,
+                              child:
+                                  Image(image: AssetImage('assets/shoe.png'))),
+                          Container(
+                              child: Text(
+                            "FootWear",
+                            style: TextStyle(
+                              fontSize: 12.0,
+                            ),
+                          )),
+                        ],
+                      ),
+                    ),
+                    onTap: () {
+                      print("Clicked 3");
+                    },
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 100,
+                  decoration: BoxDecoration(
+                    color: Colors.orange,
+                  ),
+                  child: Text(
+                    "Fashion \nis Life",
+                    style: TextStyle(
+                      fontSize: 45.0,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1.5,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
