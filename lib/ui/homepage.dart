@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_app/account/account.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -14,14 +15,24 @@ class _HomePageState extends State<HomePage> {
           icon: Icon(Icons.account_circle_outlined),
           color: Colors.orange,
           iconSize: 40.0,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Account(),
+              ),
+            );
+          },
         ),
-        title: Text(
-          "FashDeal",
-          style: TextStyle(
-            fontSize: 20.0,
-            fontWeight: FontWeight.bold,
-            color: Colors.orange,
+        title: Padding(
+          padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
+          child: Text(
+            "FashDeal",
+            style: TextStyle(
+              fontSize: 30.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.orange,
+            ),
           ),
         ),
         backgroundColor: Colors.white,
