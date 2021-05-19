@@ -14,6 +14,7 @@ class _AboutState extends State<About> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           color: Colors.orange,
+          iconSize: 30.0,
           onPressed: () {
             Navigator.of(context).pop();
           },

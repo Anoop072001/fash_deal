@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping_app/account/account.dart';
 
@@ -7,6 +8,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final FirebaseFirestore firestore = FirebaseFirestore.instance;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,133 +41,130 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.white,
         elevation: 2.0,
       ),
-      body: Container(
-        constraints: BoxConstraints.expand(),
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/double-bubble-outline.png'),
-            fit: BoxFit.cover,
-          ),
-        ),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: GestureDetector(
-                    child: Container(
-                      width: 50,
-                      height: 50,
-                      child: Column(
-                        children: [
-                          Container(
-                              width: 30,
-                              height: 30,
-                              child:
-                                  Image(image: AssetImage('assets/shirt.png'))),
-                          Container(
-                              child: Text(
-                            "All",
-                            style: TextStyle(
-                              fontSize: 12.0,
-                            ),
-                          )),
-                        ],
-                      ),
-                    ),
-                    onTap: () {
-                      print("Clicked");
-                    },
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: GestureDetector(
-                    child: Container(
-                      width: 50,
-                      height: 50,
-                      child: Column(
-                        children: [
-                          Container(
-                              width: 30,
-                              height: 30,
-                              child:
-                                  Image(image: AssetImage('assets/mens.png'))),
-                          Container(
-                              child: Text(
-                            "Men's",
-                            style: TextStyle(
-                              fontSize: 12.0,
-                            ),
-                          )),
-                        ],
-                      ),
-                    ),
-                    onTap: () {
-                      print("Clicked 1");
-                    },
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: GestureDetector(
-                    child: Container(
-                      width: 50,
-                      height: 50,
-                      child: Column(
-                        children: [
-                          Container(
-                              width: 30,
-                              height: 30,
-                              child: Image(
-                                  image: AssetImage('assets/womens.png'))),
-                          Container(
-                            child: Text(
-                              "Women's",
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: GestureDetector(
+                      child: Container(
+                        // width: 50,
+                        // height: 50,
+                        child: Column(
+                          children: [
+                            Container(
+                                width: 30,
+                                height: 30,
+                                child: Image(
+                                    image: AssetImage('assets/shirt.png'))),
+                            Container(
+                                child: Text(
+                              "All",
                               style: TextStyle(
                                 fontSize: 12.0,
                               ),
-                            ),
-                          ),
-                        ],
+                            )),
+                          ],
+                        ),
                       ),
+                      onTap: () {
+                        print("Clicked");
+                      },
                     ),
-                    onTap: () {
-                      print("Clicked 2");
-                    },
                   ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: GestureDetector(
-                    child: Container(
-                      width: 60,
-                      height: 50,
-                      child: Column(
-                        children: [
-                          Container(
-                              width: 30,
-                              height: 30,
-                              child:
-                                  Image(image: AssetImage('assets/shoe.png'))),
-                          Container(
+                  Expanded(
+                    flex: 1,
+                    child: GestureDetector(
+                      child: Container(
+                        // width: 50,
+                        // height: 50,
+                        child: Column(
+                          children: [
+                            Container(
+                                width: 30,
+                                height: 30,
+                                child: Image(
+                                    image: AssetImage('assets/mens.png'))),
+                            Container(
+                                child: Text(
+                              "Men's",
+                              style: TextStyle(
+                                fontSize: 12.0,
+                              ),
+                            )),
+                          ],
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pushNamed(context, '/men');
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: GestureDetector(
+                      child: Container(
+                        // width: 50,
+                        // height: 50,
+                        child: Column(
+                          children: [
+                            Container(
+                                width: 30,
+                                height: 30,
+                                child: Image(
+                                    image: AssetImage('assets/womens.png'))),
+                            Container(
                               child: Text(
-                            "FootWear",
-                            style: TextStyle(
-                              fontSize: 12.0,
+                                "Women's",
+                                style: TextStyle(
+                                  fontSize: 12.0,
+                                ),
+                              ),
                             ),
-                          )),
-                        ],
+                          ],
+                        ),
                       ),
+                      onTap: () {
+                        Navigator.pushNamed(context, '/women');
+                      },
                     ),
-                    onTap: () {
-                      print("Clicked 3");
-                    },
                   ),
-                ),
-              ],
+                  Expanded(
+                    flex: 1,
+                    child: GestureDetector(
+                      child: Container(
+                        // width: 60,
+                        // height: 50,
+                        child: Column(
+                          children: [
+                            Container(
+                                width: 30,
+                                height: 30,
+                                child: Image(
+                                    image: AssetImage('assets/children.png'))),
+                            Container(
+                                child: Text(
+                              "Children's",
+                              style: TextStyle(
+                                fontSize: 12.0,
+                              ),
+                            )),
+                          ],
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pushNamed(context, '/child');
+                      },
+                    ),
+                  ),
+                ],
+              ),
             ),
             Row(
               children: [
@@ -174,18 +174,64 @@ class _HomePageState extends State<HomePage> {
                   decoration: BoxDecoration(
                     color: Colors.orange,
                   ),
-                  child: Text(
-                    "Fashion \nis Life",
-                    style: TextStyle(
-                      fontSize: 45.0,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 1.5,
-                      color: Colors.white,
+                  child: Center(
+                    child: Text(
+                      "Fashion is Life",
+                      style: TextStyle(
+                        fontSize: 45.0,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1.5,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
               ],
             ),
+
+            StreamBuilder(
+              stream: firestore.collection("user").snapshots(),
+              builder: (BuildContext context,
+                  AsyncSnapshot<QuerySnapshot> snapshot) {
+                if (snapshot.hasData) {
+                  return ListView(
+                    shrinkWrap: true,
+                    physics: ClampingScrollPhysics(),
+                    children:
+                        snapshot.data.docs.map((DocumentSnapshot document) {
+                      return ListTile(
+                        title: Text(
+                          document.data()["ItemName"],
+                          style: TextStyle(
+                              color: Colors.orange,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 23),
+                        ),
+                        subtitle:
+                            Text(document.data()["Description"] ?? "No Data"),
+                        trailing: Text(document.data()["Price"] ?? "No Data"),
+                        leading: CircleAvatar(
+                          radius: 30,
+                          backgroundImage: NetworkImage(
+                            document.data()["Image"] ?? "No Data",
+                          ),
+                        ),
+                      );
+                    }).toList(),
+                  );
+                } else {
+                  return Container();
+                }
+              },
+            )
+            // Padding(
+            //   padding: const EdgeInsets.all(8.0),
+            //   child: Container(
+            //     height: 30,
+            //     width: 30,
+            //     color: Colors.black,
+            //   ),
+            // )
           ],
         ),
       ),

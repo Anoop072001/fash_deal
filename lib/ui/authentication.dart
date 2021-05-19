@@ -94,12 +94,7 @@ class _AuthenticationState extends State<Authentication> {
                   bool shouldNAvigate =
                       await register(_emailField.text, _passwordField.text);
                   if (shouldNAvigate) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomePage(),
-                      ),
-                    );
+                    Navigator.pushNamed(context, '/home');
                   }
                 },
                 child: Text("Register"),
@@ -120,12 +115,7 @@ class _AuthenticationState extends State<Authentication> {
                   bool shouldNAvigate =
                       await signIn(_emailField.text, _passwordField.text);
                   if (shouldNAvigate) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomePage(),
-                      ),
-                    );
+                    Navigator.pushNamed(context, '/home');
                   }
                 },
                 child: Text("Log in"),
