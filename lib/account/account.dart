@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shopping_app/account/about_us/about.dart';
+import 'package:shopping_app/account/wishlist/wishlist.dart';
 
 class Account extends StatefulWidget {
   @override
@@ -20,12 +22,12 @@ class _AccountState extends State<Account> {
             Navigator.of(context).pop();
           },
         ),
-        title: Text(
-          "My Account",
-          style: TextStyle(
-            color: Colors.orange,
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
+        title: Padding(
+          padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
+          child: Text(
+            "FashDeal",
+            style: GoogleFonts.greatVibes(
+                textStyle: TextStyle(fontSize: 40, color: Colors.orange)),
           ),
         ),
       ),
@@ -41,9 +43,12 @@ class _AccountState extends State<Account> {
               backgroundColor: Colors.orange,
             ),
           ),
+          SizedBox(
+            height: 20,
+          ),
           Center(
             child: Text(
-              "Account",
+              "My Account",
               style: TextStyle(color: Colors.black, fontSize: 18),
             ),
           ),
@@ -52,7 +57,11 @@ class _AccountState extends State<Account> {
           ),
           GestureDetector(
             onTap: () {
-              print("wish");
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Wishlist(),
+                  ));
             },
             child: Container(
               width: MediaQuery.of(context).size.width,
@@ -70,7 +79,7 @@ class _AccountState extends State<Account> {
                   ),
                   Center(
                     child: Text(
-                      "Wishlist",
+                      " Wishlist",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
@@ -105,52 +114,12 @@ class _AccountState extends State<Account> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(
-                    Icons.add,
+                    Icons.phone,
                     color: Colors.white,
                   ),
                   Center(
                     child: Text(
-                      "Add Items",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => About(),
-                ),
-              );
-            },
-            child: Container(
-              width: MediaQuery.of(context).size.width,
-              height: 50,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                color: Colors.orange,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.account_circle,
-                    color: Colors.white,
-                  ),
-                  Center(
-                    child: Text(
-                      "About US",
+                      " About Us",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,

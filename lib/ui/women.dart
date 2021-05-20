@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shopping_app/ui/size/All.dart';
 
 import 'size/L.dart';
@@ -30,11 +31,8 @@ class _WomenState extends State<Women> {
             padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
             child: Text(
               "FashDeal",
-              style: TextStyle(
-                fontSize: 30.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.orange,
-              ),
+              style: GoogleFonts.greatVibes(
+                  textStyle: TextStyle(fontSize: 40, color: Colors.orange)),
             ),
           ),
           backgroundColor: Colors.white,
@@ -51,12 +49,9 @@ class _WomenState extends State<Women> {
                   ),
                   child: Center(
                     child: Text(
-                      "Womens's",
-                      style: TextStyle(
-                        fontSize: 45.0,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 1.5,
-                        color: Colors.white,
+                      "-   Women's   -",
+                      style: GoogleFonts.orbitron(
+                        textStyle: TextStyle(fontSize: 35),
                       ),
                     ),
                   ),
