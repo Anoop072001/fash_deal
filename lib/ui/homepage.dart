@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:simple_animations/simple_animations.dart';
 import 'package:shopping_app/account/account.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:favorite_button/favorite_button.dart';
@@ -21,7 +20,7 @@ class _HomePageState extends State<HomePage> {
   final CollectionReference cref = FirebaseFirestore.instance
       .collection(FirebaseAuth.instance.currentUser.email);
 
-  String url = "https://www.finlage.in/upi-pay/00003D6";
+  String url = "https://www.finlage.in/upi-pay/00003E1";
 
   @override
   Widget build(BuildContext context) {
@@ -43,13 +42,13 @@ class _HomePageState extends State<HomePage> {
             );
           },
         ),
-        actions: [
-          IconButton(
-              icon: Icon(Icons.favorite),
-              iconSize: 30,
-              color: Colors.orange,
-              onPressed: () {})
-        ],
+        // actions: [
+        //   IconButton(
+        //       icon: Icon(Icons.favorite),
+        //       iconSize: 30,
+        //       color: Colors.orange,
+        //       onPressed: () {})
+        // ],
         title: Padding(
           padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
           child: Text(
@@ -229,7 +228,7 @@ class _HomePageState extends State<HomePage> {
                             borderRadius: BorderRadius.circular(15),
                             child: ListTile(
                               isThreeLine: true,
-                              tileColor: Colors.grey.withOpacity(0.4),
+                              // tileColor: Colors.white,
                               title: Text(
                                 document.data()["ItemName"] ?? "No Data",
                                 style: TextStyle(
@@ -242,14 +241,9 @@ class _HomePageState extends State<HomePage> {
                                 children: [
                                   Text(
                                     document.data()["Description"] ?? "No Data",
-                                    style: TextStyle(color: Colors.black),
                                   ),
                                   Text(
                                     document.data()["Size"],
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20),
                                   ),
                                 ],
                               ),
@@ -298,9 +292,6 @@ class _HomePageState extends State<HomePage> {
                                           print(dec);
                                         }
                                       });
-                                      // .snapshots()
-                                      // .map((DocumentSnapshot document) {})
-                                      // .toList();
 
                                       return AlertDialog(
                                         backgroundColor:
@@ -327,10 +318,6 @@ class _HomePageState extends State<HomePage> {
                                                         .data()["Image"])),
                                               ),
                                               Container(
-                                                decoration: BoxDecoration(
-                                                    border: Border.all(
-                                                        color: Colors.white,
-                                                        width: 3)),
                                                 height: 50,
                                                 width: 220,
                                                 child: Row(
