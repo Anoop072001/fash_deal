@@ -67,7 +67,7 @@ class _AboutState extends State<About> {
                       )),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 30,
                     ),
                     Row(
                       children: [
@@ -84,7 +84,45 @@ class _AboutState extends State<About> {
                           ),
                         ),
                       ],
-                    )
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width / 1.17,
+                      child: Text(
+                        "Ring at +91 7534******",
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Address",
+                              style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                  fontSize: 40,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              )),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Text(
+                            "FlashDeal,\nNear Christ College of Engineering Irinjalkuda,680121\nThrissur,Kerala\nIndia",
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 )),
           ],

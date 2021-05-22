@@ -357,7 +357,7 @@ class _HomePageState extends State<HomePage> {
                                                       },
                                                       isFavorite:
                                                           dec ? true : false,
-                                                      iconColor: Colors.orange,
+                                                      iconColor: Colors.grey,
                                                     )
                                                   ],
                                                 ),
