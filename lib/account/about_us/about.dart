@@ -30,28 +30,65 @@ class _AboutState extends State<About> {
         ),
         elevation: 0.0,
       ),
-      body: Column(
-        children: [
-          Row(
-            children: [
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: 100,
-                decoration: BoxDecoration(
-                  color: Colors.orange,
-                ),
-                child: Center(
-                  child: Text(
-                    "-   About Us   -",
-                    style: GoogleFonts.orbitron(
-                      textStyle: TextStyle(fontSize: 35),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 100,
+                  decoration: BoxDecoration(
+                    color: Colors.orange,
+                  ),
+                  child: Center(
+                    child: Text(
+                      "-   About Us   -",
+                      style: GoogleFonts.orbitron(
+                        textStyle: TextStyle(fontSize: 35),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+            Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                child: Column(
+                  children: [
+                    Text(
+                      "Got Any problems while surfacing?",
+                      style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                      )),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.phone,
+                          color: Colors.orange,
+                        ),
+                        Text(
+                          "Why Don't you call us?",
+                          style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                )),
+          ],
+        ),
       ),
     );
   }
