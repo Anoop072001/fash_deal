@@ -40,7 +40,7 @@ class _AllState extends State<All> {
                   if (document.data()["Category"] == category) {
                     return ListTile(
                         title: Text(
-                          document.data()["ItemName"],
+                          document.data()["ItemName"] ?? "no data",
                           style: TextStyle(
                               color: Colors.orange,
                               fontWeight: FontWeight.bold,
@@ -122,7 +122,8 @@ class _AllState extends State<All> {
                                             children: [
                                               Center(
                                                 child: Text(
-                                                  document.data()["Price"],
+                                                  document.data()["Price"] ??
+                                                      "No data",
                                                   style: TextStyle(
                                                       fontWeight:
                                                           FontWeight.bold,
@@ -156,7 +157,8 @@ class _AllState extends State<All> {
                                         Padding(
                                           padding: const EdgeInsets.all(8.0),
                                           child: Text(
-                                            document.data()["Description"],
+                                            document.data()["Description"] ??
+                                                "no data",
                                             style:
                                                 TextStyle(color: Colors.orange),
                                           ),
