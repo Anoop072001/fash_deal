@@ -8,7 +8,7 @@ This is a Fashion Shopping App which mainly focuses on clothlines.This has reall
 ## Team Id
 BFH/recG6MSwqEgHFzyrU/2021
 ## Link to product walkthrough
-[https://www.loom.com/share/a7deb2d35c8749ea83f37db588197b2b]
+[https://www.loom.com/share/b91aa566101d4883894c92f9e5fc64db]
 ## How it Works ?
 1. Open the app
 2. Register with you're email and password/ Log in with your email and password(If already registered)
@@ -23,4 +23,4 @@ http: "^0.12.0+2" ,
 url_launcher: "^6.0.3" ,
 favorite_button: "^0.0.4" ,
 ## App Link
-.[https://drive.google.com/drive/folders/1cK5GC5xEvmMQqnTC6VC42-htSKKRdyYT?usp=sharing].
+[https://drive.google.com/drive/folders/1cK5GC5xEvmMQqnTC6VC42-htSKKRdyYT?usp=sharing]
