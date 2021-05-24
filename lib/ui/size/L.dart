@@ -106,8 +106,9 @@ class _LargeState extends State<Large> {
                                           width: 220,
                                           color: Colors.black,
                                           child: Image(
-                                              image: NetworkImage(
-                                                  document.data()["Image"])),
+                                              image: NetworkImage(document
+                                                      .data()["Image"] ??
+                                                  "https://htmlcolorcodes.com/assets/images/colors/baby-blue-color-solid-background-1920x1080.png")),
                                         ),
                                         Container(
                                           height: 50,
@@ -118,7 +119,8 @@ class _LargeState extends State<Large> {
                                             children: [
                                               Center(
                                                 child: Text(
-                                                  document.data()["Price"],
+                                                  document.data()["Price"] ??
+                                                      "no data",
                                                   style: TextStyle(
                                                       fontWeight:
                                                           FontWeight.bold,

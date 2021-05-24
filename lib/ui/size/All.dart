@@ -20,8 +20,6 @@ class _AllState extends State<All> {
       .collection(FirebaseAuth.instance.currentUser.email);
   final String category;
 
-  // FirebaseFirestore firestore1 = FirebaseFirestore.instance;
-
   _AllState(this.category);
   @override
   Widget build(BuildContext context) {
@@ -53,7 +51,7 @@ class _AllState extends State<All> {
                               document.data()["Description"] ?? "No Data",
                             ),
                             Text(
-                              document.data()["Size"],
+                              document.data()["Size"] ?? "no data",
                             ),
                           ],
                         ),
@@ -93,7 +91,8 @@ class _AllState extends State<All> {
                                   backgroundColor:
                                       Colors.black.withOpacity(0.8),
                                   title: Text(
-                                    document.data()["ItemName"] +
+                                    document.data()["ItemName"] ??
+                                        "no data" +
                                             " - " +
                                             document.data()["Size"] ??
                                         "No Data",

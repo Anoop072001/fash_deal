@@ -37,7 +37,7 @@ class _MenState extends State<Men> {
             ),
           ),
           backgroundColor: Colors.white,
-          elevation: 2.0,
+          elevation: 1.0,
           bottom: PreferredSize(
             preferredSize: Size(400, 150),
             child: Column(

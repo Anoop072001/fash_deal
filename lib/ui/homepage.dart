@@ -242,7 +242,7 @@ class _HomePageState extends State<HomePage> {
                                     document.data()["Description"] ?? "No Data",
                                   ),
                                   Text(
-                                    document.data()["Size"],
+                                    document.data()["Size"] ?? "no data",
                                   ),
                                 ],
                               ),
@@ -296,7 +296,8 @@ class _HomePageState extends State<HomePage> {
                                         backgroundColor:
                                             Colors.black.withOpacity(0.8),
                                         title: Text(
-                                          document.data()["ItemName"] +
+                                          document.data()["ItemName"] ??
+                                              "no data" +
                                                   " - " +
                                                   document.data()["Size"] ??
                                               "No Data",
@@ -314,7 +315,8 @@ class _HomePageState extends State<HomePage> {
                                                 color: Colors.black,
                                                 child: Image(
                                                     image: NetworkImage(document
-                                                        .data()["Image"])),
+                                                            .data()["Image"] ??
+                                                        "https://htmlcolorcodes.com/assets/images/colors/baby-blue-color-solid-background-1920x1080.png")),
                                               ),
                                               Container(
                                                 height: 50,
@@ -326,8 +328,9 @@ class _HomePageState extends State<HomePage> {
                                                   children: [
                                                     Center(
                                                       child: Text(
-                                                        document
-                                                            .data()["Price"],
+                                                        document.data()[
+                                                                "Price"] ??
+                                                            "no data",
                                                         style: TextStyle(
                                                             fontWeight:
                                                                 FontWeight.bold,

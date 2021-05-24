@@ -17,7 +17,7 @@ class _AccountState extends State<Account> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           color: Colors.orange,
-          iconSize: 40.0,
+          iconSize: 30.0,
           onPressed: () {
             Navigator.of(context).pop();
           },
@@ -55,45 +55,45 @@ class _AccountState extends State<Account> {
           SizedBox(
             height: 30.0,
           ),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Wishlist(),
-                  ));
-            },
-            child: Container(
-              width: MediaQuery.of(context).size.width,
-              height: 50,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                color: Colors.orange,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.favorite,
-                    color: Colors.white,
-                  ),
-                  Center(
-                    child: Text(
-                      " Wishlist",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
+          // GestureDetector(
+          //   onTap: () {
+          //     Navigator.push(
+          //         context,
+          //         MaterialPageRoute(
+          //           builder: (context) => Wishlist(),
+          //         ));
+          //   },
+          //   child: Container(
+          //     width: MediaQuery.of(context).size.width,
+          //     height: 50,
+          //     decoration: BoxDecoration(
+          //       borderRadius: BorderRadius.circular(10.0),
+          //       color: Colors.orange,
+          //     ),
+          //     child: Row(
+          //       mainAxisAlignment: MainAxisAlignment.center,
+          //       children: [
+          //         Icon(
+          //           Icons.favorite,
+          //           color: Colors.white,
+          //         ),
+          //         Center(
+          //           child: Text(
+          //             " Wishlist",
+          //             style: TextStyle(
+          //               color: Colors.white,
+          //               fontSize: 18,
+          //               fontWeight: FontWeight.bold,
+          //             ),
+          //           ),
+          //         ),
+          //       ],
+          //     ),
+          //   ),
+          // ),
+          // SizedBox(
+          //   height: 10,
+          // ),
           GestureDetector(
             onTap: () {
               Navigator.push(

@@ -22,7 +22,7 @@ void main() async {
       '/account': (context) => Account(),
       '/child': (context) => Child(),
       '/about': (context) => About(),
-      '/wishlist': (context) => Wishlist(),
+      // '/wishlist': (context) => Wishlist(),
     },
   ));
 }
