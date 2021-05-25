@@ -2,7 +2,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping_app/account/about_us/about.dart';
 import 'package:shopping_app/account/account.dart';
-import 'package:shopping_app/account/wishlist/wishlist.dart';
 import 'package:shopping_app/ui/child.dart';
 import 'package:shopping_app/ui/homepage.dart';
 import 'package:shopping_app/ui/authentication.dart';
@@ -22,7 +21,6 @@ void main() async {
       '/account': (context) => Account(),
       '/child': (context) => Child(),
       '/about': (context) => About(),
-      // '/wishlist': (context) => Wishlist(),
     },
   ));
 }
