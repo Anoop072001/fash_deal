@@ -8,10 +8,10 @@ This is a Fashion Shopping App which mainly focuses on clothlines.This has reall
 ## Team Id
 BFH/recG6MSwqEgHFzyrU/2021
 ## Link to product walkthrough
-[link to video]
+[https://www.loom.com/share/b91aa566101d4883894c92f9e5fc64db]
 ## How it Works ?
 1. Open the app
-2. Register with you're email and password/ Log in with your email and password(If already registered)
+2. Register with you're email and password/ Log in with your email and password(If already registered)//Pls Be patient it might take a few mins(or use email-anoop@gmail.com || password - wasdww  (only if registeration not working)).
 3. Surf through it ,find what you want and since its a dummy app you cannot buy anything but will take you to the site for transaction
 4. There is a account icon in top left corner , You can go there and find about us. 
 ## Libraries used
@@ -22,3 +22,5 @@ google_fonts: "^1.1.2" ,
 http: "^0.12.0+2" ,
 url_launcher: "^6.0.3" ,
 favorite_button: "^0.0.4" ,
+## App Link
+[https://drive.google.com/drive/folders/1cK5GC5xEvmMQqnTC6VC42-htSKKRdyYT?usp=sharing]
