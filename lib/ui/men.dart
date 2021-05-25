@@ -40,66 +40,69 @@ class _MenState extends State<Men> {
           elevation: 1.0,
           bottom: PreferredSize(
             preferredSize: Size(400, 150),
-            child: Column(
-              children: [
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: 100,
-                  decoration: BoxDecoration(
-                    color: Colors.orange,
-                  ),
-                  child: Center(
-                    child: Text(
-                      "-   Men's   -",
-                      style: GoogleFonts.orbitron(
-                        textStyle: TextStyle(fontSize: 35),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
+                children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 100,
+                    decoration: BoxDecoration(
+                      color: Colors.orange,
+                    ),
+                    child: Center(
+                      child: Text(
+                        "-   Men's   -",
+                        style: GoogleFonts.orbitron(
+                          textStyle: TextStyle(fontSize: 35),
+                        ),
                       ),
                     ),
                   ),
-                ),
-                TabBar(
-                  labelStyle:
-                      TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
-                  controller: tabController,
-                  indicatorColor: Colors.transparent,
-                  labelColor: Colors.orange,
-                  unselectedLabelColor: Theme.of(context).hintColor,
-                  tabs: [
-                    Container(
-                      height: 50,
-                      child: Tab(
-                        //icon: Image.asset(Constants.kHornIcon),
-                        text: "All",
+                  TabBar(
+                    labelStyle:
+                        TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
+                    controller: tabController,
+                    indicatorColor: Colors.transparent,
+                    labelColor: Colors.orange,
+                    unselectedLabelColor: Theme.of(context).hintColor,
+                    tabs: [
+                      Container(
+                        height: 50,
+                        child: Tab(
+                          //icon: Image.asset(Constants.kHornIcon),
+                          text: "All",
+                        ),
                       ),
-                    ),
-                    Container(
-                      height: 50,
-                      child: Tab(
-                        text: "Med",
+                      Container(
+                        height: 50,
+                        child: Tab(
+                          text: "Med",
+                        ),
                       ),
-                    ),
-                    Container(
-                      height: 50,
-                      child: Tab(
-                        text: "Large",
+                      Container(
+                        height: 50,
+                        child: Tab(
+                          text: "Large",
+                        ),
                       ),
-                    ),
-                    Container(
-                      height: 50,
-                      child: Tab(
-                        text: "XL",
+                      Container(
+                        height: 50,
+                        child: Tab(
+                          text: "XL",
+                        ),
                       ),
-                    ),
-                    Container(
-                      height: 50,
-                      child: Tab(
-                        //icon: Image.asset(Constants.kHornIcon),
-                        text: "XXL",
+                      Container(
+                        height: 50,
+                        child: Tab(
+                          //icon: Image.asset(Constants.kHornIcon),
+                          text: "XXL",
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),

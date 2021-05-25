@@ -26,14 +26,14 @@ class _AllState extends State<All> {
     final User _auth = auth.currentUser;
     String _email = _auth.email;
     return Scaffold(
-        body: SingleChildScrollView(
-      child: StreamBuilder(
+      body: StreamBuilder(
           stream: firestore.collection("user").snapshots(),
           builder:
               (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
             if (snapshot.hasData) {
               return ListView(
                 shrinkWrap: true,
+                physics: ClampingScrollPhysics(),
                 children: snapshot.data.docs.map((DocumentSnapshot document) {
                   if (document.data()["Category"] == category) {
                     return ListTile(
@@ -212,7 +212,7 @@ class _AllState extends State<All> {
               return Container();
             }
           }),
-    ));
+    );
   }
 
   void _launchURL() async {

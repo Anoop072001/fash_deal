@@ -40,6 +40,7 @@ class _LargeState extends State<Large> {
             if (snapshot.hasData) {
               return ListView(
                 shrinkWrap: true,
+                physics: ClampingScrollPhysics(),
                 children: snapshot.data.docs.map((DocumentSnapshot document) {
                   if (document.data()["Category"] == category &&
                       document.data()["Size"] == size) {
