@@ -42,23 +42,29 @@ class _LargeState extends State<Large> {
                 shrinkWrap: true,
                 physics: ClampingScrollPhysics(),
                 children: snapshot.data.docs.map((DocumentSnapshot document) {
-                  if (document.data()["Category"] == category &&
-                      document.data()["Size"] == size) {
+                  // if (document.data()["Category"] == category &&
+                  //     document.data()["Size"] == size) {
+                  if (document.data() == category && document.data() == size) {
                     return ListTile(
                         title: Text(
-                          document.data()["ItemName"],
+                          document.data(),
+                          // document.data()["ItemName"],
+
                           style: TextStyle(
                               color: Colors.orange,
                               fontWeight: FontWeight.bold,
                               fontSize: 23),
                         ),
                         subtitle:
-                            Text(document.data()["Description"] ?? "No Data"),
-                        trailing: Text(document.data()["Price"] ?? "No Data"),
+                            // Text(document.data()["Description"] ?? "No Data"),
+                            Text(document.data() ?? "No Data"),
+                        // trailing: Text(document.data()["Price"] ?? "No Data"),
+                        trailing: Text(document.data() ?? "No Data"),
                         leading: CircleAvatar(
                           radius: 30,
                           backgroundImage: NetworkImage(
-                            document.data()["Image"] ?? "No Data",
+                            // document.data()["Image"] ?? "No Data",
+                            document.data() ?? "No Data",
                           ),
                         ),
                         onTap: () {
@@ -66,7 +72,9 @@ class _LargeState extends State<Large> {
                               context: context,
                               builder: (context) {
                                 bool fav = false;
-                                String temp = document.data()["ItemName"];
+                                // String temp = document.data()["ItemName"];
+                                String temp = document.data();
+
                                 bool dec = true;
                                 var deca = FirebaseFirestore.instance
                                     .collection(_email)
@@ -90,10 +98,10 @@ class _LargeState extends State<Large> {
                                   backgroundColor:
                                       Colors.black.withOpacity(0.8),
                                   title: Text(
-                                    document.data()["ItemName"] +
-                                            " - " +
-                                            document.data()["Size"] ??
-                                        "No Data",
+                                    // document.data()["ItemName"] +
+                                    //         " - " +
+                                    //         document.data()["Size"] ??
+                                    "No Data",
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 30,
@@ -108,7 +116,8 @@ class _LargeState extends State<Large> {
                                           color: Colors.black,
                                           child: Image(
                                               image: NetworkImage(document
-                                                      .data()["Image"] ??
+                                                      // .data()["Image"] ??
+                                                      .data() ??
                                                   "https://htmlcolorcodes.com/assets/images/colors/baby-blue-color-solid-background-1920x1080.png")),
                                         ),
                                         Container(
@@ -120,8 +129,8 @@ class _LargeState extends State<Large> {
                                             children: [
                                               Center(
                                                 child: Text(
-                                                  document.data()["Price"] ??
-                                                      "no data",
+                                                  // document.data()["Price"] ??
+                                                  document.data() ?? "no data",
                                                   style: TextStyle(
                                                       fontWeight:
                                                           FontWeight.bold,
@@ -140,8 +149,10 @@ class _LargeState extends State<Large> {
                                                         fav.toString() + temp);
                                                     print(dec);
                                                   } else {
-                                                    String temp = document
-                                                        .data()["ItemName"];
+                                                    String temp =
+                                                        document.data();
+                                                    // .data()["ItemName"];
+
                                                     _removeFav(_email, temp);
                                                     print("False");
                                                   }
@@ -155,7 +166,9 @@ class _LargeState extends State<Large> {
                                         Padding(
                                           padding: const EdgeInsets.all(8.0),
                                           child: Text(
-                                            document.data()["Description"],
+                                            document.data(),
+                                            // document.data()["Description"],
+
                                             style:
                                                 TextStyle(color: Colors.orange),
                                           ),

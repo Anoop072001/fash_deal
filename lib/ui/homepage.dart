@@ -229,7 +229,9 @@ class _HomePageState extends State<HomePage> {
                               isThreeLine: true,
                               // tileColor: Colors.white,
                               title: Text(
-                                document.data()["ItemName"] ?? "No Data",
+                                // document.data()["ItemName"] ?? "No Data",
+                                document.data() ?? "No Data",
+
                                 style: TextStyle(
                                     color: Colors.orange,
                                     fontWeight: FontWeight.bold,
@@ -239,10 +241,13 @@ class _HomePageState extends State<HomePage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    document.data()["Description"] ?? "No Data",
+                                    // document.data()["Description"] ?? "No Data",
+                                    document.data() ?? "No Data",
                                   ),
                                   Text(
-                                    document.data()["Size"] ?? "no data",
+                                    // document.data()["Size"] ?? "no data",
+                                    document.data() ?? "no data",
+//
                                   ),
                                 ],
                               ),
@@ -253,7 +258,9 @@ class _HomePageState extends State<HomePage> {
                                   child: Padding(
                                     padding: const EdgeInsets.all(1.0),
                                     child: Text(
-                                      document.data()["Price"] ?? "No Data",
+                                      // document.data()["Price"] ?? "No Data",
+                                      document.data() ?? "No Data",
+
                                       style: TextStyle(
                                           fontSize: 15, color: Colors.black),
                                     ),
@@ -263,7 +270,8 @@ class _HomePageState extends State<HomePage> {
                               leading: CircleAvatar(
                                 radius: 30,
                                 backgroundImage: NetworkImage(
-                                  document.data()["Image"] ??
+                                  document.data() ??
+                                      // document.data()["Image"] ??
                                       "https://htmlcolorcodes.com/assets/images/colors/baby-blue-color-solid-background-1920x1080.png",
                                 ),
                               ),
@@ -272,7 +280,9 @@ class _HomePageState extends State<HomePage> {
                                     context: context,
                                     builder: (context) {
                                       bool fav = false;
-                                      String temp = document.data()["ItemName"];
+                                      // String temp = document.data()["ItemName"];
+                                      String temp = document.data();
+
                                       bool dec = true;
                                       var deca = FirebaseFirestore.instance
                                           .collection(_email)
@@ -296,10 +306,13 @@ class _HomePageState extends State<HomePage> {
                                         backgroundColor:
                                             Colors.black.withOpacity(0.8),
                                         title: Text(
-                                          document.data()["ItemName"] ??
+                                          document.data() ??
+                                              // document.data()["ItemName"] ??
+
                                               "no data" +
                                                   " - " +
-                                                  document.data()["Size"] ??
+                                                  // document.data()["Size"] ??
+                                                  document.data() ??
                                               "No Data",
                                           style: TextStyle(
                                               fontWeight: FontWeight.bold,
@@ -315,7 +328,8 @@ class _HomePageState extends State<HomePage> {
                                                 color: Colors.black,
                                                 child: Image(
                                                     image: NetworkImage(document
-                                                            .data()["Image"] ??
+                                                            .data() ??
+                                                        // .data()["Image"] ??
                                                         "https://htmlcolorcodes.com/assets/images/colors/baby-blue-color-solid-background-1920x1080.png")),
                                               ),
                                               Container(
@@ -328,8 +342,8 @@ class _HomePageState extends State<HomePage> {
                                                   children: [
                                                     Center(
                                                       child: Text(
-                                                        document.data()[
-                                                                "Price"] ??
+                                                        // document.data()["Price"] ??
+                                                        document.data() ??
                                                             "no data",
                                                         style: TextStyle(
                                                             fontWeight:
@@ -351,8 +365,9 @@ class _HomePageState extends State<HomePage> {
                                                           print(dec);
                                                         } else {
                                                           String temp =
-                                                              document.data()[
-                                                                  "ItemName"];
+                                                              document.data();
+                                                          // document.data()["ItemName"];
+
                                                           _removeFav(
                                                               _email, temp);
                                                           print("False");
@@ -369,8 +384,9 @@ class _HomePageState extends State<HomePage> {
                                                 padding:
                                                     const EdgeInsets.all(8.0),
                                                 child: Text(
-                                                  document
-                                                      .data()["Description"],
+                                                  // document.data()["Description"],
+                                                  document.data(),
+
                                                   style: TextStyle(
                                                       color: Colors.orange),
                                                 ),
