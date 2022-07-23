@@ -35,10 +35,12 @@ class _AllState extends State<All> {
                 shrinkWrap: true,
                 physics: ClampingScrollPhysics(),
                 children: snapshot.data.docs.map((DocumentSnapshot document) {
-                  if (document.get("Category").toString() == category) {
+                  if (document.data().toString().contains(category)) {
                     return ListTile(
                         title: Text(
-                          document.get("ItemName") ?? "no data",
+                          document.data().toString().contains("ItemName")
+                              ? document.get("ItemName")
+                              : "no data",
                           style: TextStyle(
                               color: Colors.orange,
                               fontWeight: FontWeight.bold,
@@ -48,18 +50,28 @@ class _AllState extends State<All> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              document.get("Description") ?? "No Data",
+                              document.data().toString().contains("Description")
+                                  ? document.get("Description")
+                                  : "no data",
                             ),
                             Text(
-                              document.get("Size") ?? "no data",
+                              document.data().toString().contains("Size")
+                                  ? document.get("Size")
+                                  : "no data",
                             ),
                           ],
                         ),
-                        trailing: Text(document.get("Price") ?? "No Data"),
+                        trailing: Text(
+                          document.data().toString().contains("Price")
+                              ? document.get("Price")
+                              : "no data",
+                        ),
                         leading: CircleAvatar(
                           radius: 30,
                           backgroundImage: NetworkImage(
-                            document.get("Image") ?? "No Data",
+                            document.data().toString().contains("Image")
+                                ? document.get("Image")
+                                : "no data",
                           ),
                         ),
                         onTap: () {
@@ -67,7 +79,6 @@ class _AllState extends State<All> {
                               context: context,
                               builder: (context) {
                                 bool fav = false;
-                                // String temp = document.data()["ItemName"];
                                 String temp = document.get("ItemName");
 
                                 bool dec = true;
@@ -93,10 +104,10 @@ class _AllState extends State<All> {
                                   backgroundColor:
                                       Colors.black.withOpacity(0.8),
                                   title: Text(
-                                    document.data() ??
+                                    document.get("ItemName") ??
                                         "no data" +
                                             " - " +
-                                            document.get("ItemName") ??
+                                            document.get("Size") ??
                                         "No Data",
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
