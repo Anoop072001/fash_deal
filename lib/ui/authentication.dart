@@ -18,16 +18,6 @@ class _AuthenticationState extends State<Authentication> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.orange,
-        // title: Center(
-        //   child: Text(
-        //     "",
-        //     style: TextStyle(
-        //       fontSize: 40.0,
-        //       fontWeight: FontWeight.bold,
-        //       color: Colors.white,
-        //     ),
-        //   ),
-        // ),
         elevation: 0.0,
       ),
       body: SingleChildScrollView(
@@ -43,11 +33,7 @@ class _AuthenticationState extends State<Authentication> {
               Padding(
                 padding: const EdgeInsets.only(top: 0, bottom: 60.0),
                 child: Center(
-                  child: Text(
-                    "FashDeal",
-                    style: GoogleFonts.greatVibes(
-                        textStyle: TextStyle(fontSize: 70)),
-                  ),
+                  child: Image(image: AssetImage('assets/qexpress.png')),
                 ),
               ),
               Form(
