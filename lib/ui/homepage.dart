@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
   final CollectionReference cref = FirebaseFirestore.instance
       .collection(FirebaseAuth.instance.currentUser.email);
 
-  String url = "https://www.finlage.in/upi-pay/00003E1";
+  String url = "https://www.finlage.in/upi-pay/0000AV5";
 
   @override
   Widget build(BuildContext context) {

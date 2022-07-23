@@ -28,12 +28,8 @@ class _WomenState extends State<Women> {
             },
           ),
           title: Padding(
-            padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
-            child: Text(
-              "FashDeal",
-              style: GoogleFonts.greatVibes(
-                  textStyle: TextStyle(fontSize: 40, color: Colors.orange)),
-            ),
+            padding: EdgeInsets.fromLTRB(40, 60, 100, 65),
+            child: Image(image: AssetImage('assets/qexpress.png')),
           ),
           backgroundColor: Colors.white,
           elevation: 2.0,
@@ -49,7 +45,7 @@ class _WomenState extends State<Women> {
                   ),
                   child: Center(
                     child: Text(
-                      "-   Women's   -",
+                      "-   Near 20KM   -",
                       style: GoogleFonts.orbitron(
                         textStyle: TextStyle(fontSize: 35),
                       ),
