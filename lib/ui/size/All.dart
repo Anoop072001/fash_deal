@@ -35,12 +35,10 @@ class _AllState extends State<All> {
                 shrinkWrap: true,
                 physics: ClampingScrollPhysics(),
                 children: snapshot.data.docs.map((DocumentSnapshot document) {
-                  // if (document.data()["Category"] == category) {
-                  if (document.data() == category) {
+                  if (document.get("Category").toString() == category) {
                     return ListTile(
                         title: Text(
-                          // document.data()["ItemName"] ?? "no data",
-                          document.data() ?? "no data",
+                          document.get("ItemName") ?? "no data",
                           style: TextStyle(
                               color: Colors.orange,
                               fontWeight: FontWeight.bold,
@@ -50,22 +48,18 @@ class _AllState extends State<All> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              // document.data()["Description"] ?? "No Data",
-                              document.data() ?? "No Data",
+                              document.get("Description") ?? "No Data",
                             ),
                             Text(
-                              document.data() ?? "no data",
-                              // document.data()["Size"] ?? "no data",
+                              document.get("Size") ?? "no data",
                             ),
                           ],
                         ),
-                        // trailing: Text(document.data()["Price"] ?? "No Data"),
-                        trailing: Text(document.data() ?? "No Data"),
+                        trailing: Text(document.get("Price") ?? "No Data"),
                         leading: CircleAvatar(
                           radius: 30,
                           backgroundImage: NetworkImage(
-                            // document.data()["Image"] ?? "No Data",
-                            document.data() ?? "No Data",
+                            document.get("Image") ?? "No Data",
                           ),
                         ),
                         onTap: () {
@@ -74,7 +68,7 @@ class _AllState extends State<All> {
                               builder: (context) {
                                 bool fav = false;
                                 // String temp = document.data()["ItemName"];
-                                String temp = document.data();
+                                String temp = document.get("ItemName");
 
                                 bool dec = true;
                                 var deca = FirebaseFirestore.instance
@@ -100,11 +94,9 @@ class _AllState extends State<All> {
                                       Colors.black.withOpacity(0.8),
                                   title: Text(
                                     document.data() ??
-                                        // document.data()["ItemName"] ??
-
-                                        "no data" + " - " + document.data() ??
-                                        // document.data()["Size"] ??
-
+                                        "no data" +
+                                            " - " +
+                                            document.get("ItemName") ??
                                         "No Data",
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
@@ -118,9 +110,9 @@ class _AllState extends State<All> {
                                           height: 220,
                                           width: 220,
                                           color: Colors.black,
-                                          child: Image(image: NetworkImage(
-                                              // document.data()["Image"])),
-                                              document.data())),
+                                          child: Image(
+                                              image: NetworkImage(
+                                                  document.get("Image"))),
                                         ),
                                         Container(
                                           height: 50,
@@ -131,8 +123,8 @@ class _AllState extends State<All> {
                                             children: [
                                               Center(
                                                 child: Text(
-                                                  // document.data()["Price"] ??
-                                                  document.data() ?? "No data",
+                                                  document.get("Price") ??
+                                                      "No data",
                                                   style: TextStyle(
                                                       fontWeight:
                                                           FontWeight.bold,
@@ -152,8 +144,7 @@ class _AllState extends State<All> {
                                                     print(dec);
                                                   } else {
                                                     String temp = document
-                                                        // .data()["ItemName"];
-                                                        .data();
+                                                        .get("ItemName");
 
                                                     _removeFav(_email, temp);
                                                     print("False");
@@ -168,8 +159,8 @@ class _AllState extends State<All> {
                                         Padding(
                                           padding: const EdgeInsets.all(8.0),
                                           child: Text(
-                                            // document.data()["Description"] ??
-                                            document.data() ?? "no data",
+                                            document.get("Description") ??
+                                                "no data",
                                             style:
                                                 TextStyle(color: Colors.orange),
                                           ),

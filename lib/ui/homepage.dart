@@ -98,6 +98,9 @@ class _HomePageState extends State<HomePage> {
                                 ],
                               ),
                             ),
+                            onTap: () {
+                              Navigator.pushNamed(context, '/all');
+                            },
                           ),
                         ),
                         Expanded(
@@ -227,234 +230,220 @@ class _HomePageState extends State<HomePage> {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(15),
                             child: ListTile(
-                                isThreeLine: true,
-                                // tileColor: Colors.white,
-                                title: Text(
-                                  // String name = (snapshot.data.data() as Map<String,dynamic>)['name']
-                                  // hahaha ?? "No Data",
-                                  document.get("ItemName") ?? "No Data",
+                              isThreeLine: true,
+                              // tileColor: Colors.white,
+                              title: Text(
+                                // String name = (snapshot.data.data() as Map<String,dynamic>)['name']
+                                // hahaha ?? "No Data",
+                                document.get("ItemName") ?? "No Data",
 
-                                  // (snapshot.data!.data() as Map<String, dynamic>)['status']
-                                  // document.data() ?? "No Data",
+                                // (snapshot.data!.data() as Map<String, dynamic>)['status']
+                                // document.data() ?? "No Data",
 
-                                  style: TextStyle(
-                                      color: Colors.orange,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 23),
-                                ),
-                                subtitle: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      document.get("Description") ?? "No Data",
-                                      // document.data() ?? "No Data",
-                                    ),
-                                    Text(""
-                                        // document.get("Size") ?? "no data",
-                                        // document.data() ?? "no data",
+                                style: TextStyle(
+                                    color: Colors.orange,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 23),
+                              ),
+                              subtitle: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    document.get("Description") ?? "No Data",
+                                    // document.data() ?? "No Data",
+                                  ),
+                                  Text(""
+                                      // document.get("Size") ?? "no data",
+                                      // document.data() ?? "no data",
 //
-                                        ),
-                                  ],
-                                ),
-                                trailing: Container(
-                                  height: 35,
-                                  width: 80,
-                                  child: Center(
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(1.0),
-                                      child: Text(
-                                        "",
-                                        // document.get("Price") ?? "No Data",
-
-                                        // document.data()["Price"] ?? "No Data",
-                                        // document.data() ?? "No Data",
-
-                                        style: TextStyle(
-                                            fontSize: 15, color: Colors.black),
                                       ),
+                                ],
+                              ),
+                              trailing: Container(
+                                height: 35,
+                                width: 80,
+                                child: Center(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(1.0),
+                                    child: Text(
+                                      "",
+                                      // document.get("Price") ?? "No Data",
+
+                                      // document.data()["Price"] ?? "No Data",
+                                      // document.data() ?? "No Data",
+
+                                      style: TextStyle(
+                                          fontSize: 15, color: Colors.black),
                                     ),
                                   ),
                                 ),
-                                leading: CircleAvatar(
+                              ),
+                              leading: CircleAvatar(
                                   radius: 30,
-                                  backgroundImage: NetworkImage(
-                                    // document.data() ??
-                                    // document.get("image") ??
-                                    "https://htmlcolorcodes.com/assets/images/colors/baby-blue-color-solid-background-1920x1080.png",
-                                  ),
-                                ),
-                                onTap: () {
-                                  //   return showDialog(
-                                  //       context: context,
-                                  //       builder: (context) {
-                                  //         bool fav = false;
-                                  //         // String temp = document.data()["ItemName"];
-                                  //         String temp = document.data();
+                                  backgroundImage: NetworkImage(//document
+                                      //         .get("Image") ??
+                                      "https://htmlcolorcodes.com/assets/images/colors/baby-blue-color-solid-background-1920x1080.png")),
+                              onTap: () {
+                                return showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      bool fav = false;
+                                      String temp = document.get("ItemName");
 
-                                  //         bool dec = true;
-                                  //         var deca = FirebaseFirestore.instance
-                                  //             .collection(_email)
-                                  //             .doc(temp)
-                                  //             .get()
-                                  //             .then((doc) {
-                                  //           if (doc.data()["fav"] == true) {
-                                  //             setState(() {
-                                  //               dec = true;
-                                  //             });
-                                  //             print(dec);
-                                  //           } else if (doc.data()["fav"] == false) {
-                                  //             setState(() {
-                                  //               dec = false;
-                                  //             });
-                                  //             print(dec);
-                                  //           }
-                                  //         });
+                                      bool dec = true;
+                                      var deca = FirebaseFirestore.instance
+                                          .collection(_email)
+                                          .doc(temp)
+                                          .get()
+                                          .then((doc) {
+                                        if (doc.data()["fav"] == true) {
+                                          setState(() {
+                                            dec = true;
+                                          });
+                                          print(dec);
+                                        } else if (doc.data()["fav"] == false) {
+                                          setState(() {
+                                            dec = false;
+                                          });
+                                          print(dec);
+                                        }
+                                      });
 
-                                  //         return AlertDialog(
-                                  //           backgroundColor:
-                                  //               Colors.black.withOpacity(0.8),
-                                  //           title: Text(
-                                  //             ""
-                                  //                     // document.data() ??
-                                  //                     // document.data()["ItemName"] ??
-
-                                  //                     // "no data" +
-                                  //                     " - " +
-                                  //                 // document.data()["Size"] ??
-                                  //                 // document.data() ??
-                                  //                 "No Data",
-                                  //             style: TextStyle(
-                                  //                 fontWeight: FontWeight.bold,
-                                  //                 fontSize: 30,
-                                  //                 color: Colors.orange),
-                                  //           ),
-                                  //           content: SingleChildScrollView(
-                                  //             child: Column(
-                                  //               children: [
-                                  //                 // Container(
-                                  //                 //   height: 220,
-                                  //                 //   width: 220,
-                                  //                 //   color: Colors.black,
-                                  //                 //   child: Image(
-                                  //                 //       image: NetworkImage(document
-                                  //                 //               .data() ??
-                                  //                 //           // .data()["Image"] ??
-                                  //                 //           "https://htmlcolorcodes.com/assets/images/colors/baby-blue-color-solid-background-1920x1080.png")),
-                                  //                 // ),
-                                  //                 // Container(
-                                  //                 //   height: 50,
-                                  //                 //   width: 220,
-                                  //                 //   child: Row(
-                                  //                 //     mainAxisAlignment:
-                                  //                 //         MainAxisAlignment
-                                  //                 //             .spaceEvenly,
-                                  //                 //     children: [
-                                  //                 //       // Center(
-                                  //                 //       //   child: Text(
-                                  //                 //       //     // document.data()["Price"] ??
-                                  //                 //       //     document.data() ??
-                                  //                 //       //         "no data",
-                                  //                 //       //     style: TextStyle(
-                                  //                 //       //         fontWeight:
-                                  //                 //       //             FontWeight.bold,
-                                  //                 //       //         color:
-                                  //                 //       //             Colors.orange,
-                                  //                 //       //         fontSize: 25),
-                                  //                 //       //   ),
-                                  //                 //       // ),
-                                  //                 //       // FavoriteButton(
-                                  //                 //       //   valueChanged: (fav) {
-                                  //                 //       //     setState(() {
-                                  //                 //       //       //fav = !fav;
-                                  //                 //       //     });
-                                  //                 //       //     if (fav = true) {
-                                  //                 //       //       _addFav(_email, temp);
-                                  //                 //       //       print(fav.toString() +
-                                  //                 //       //           temp);
-                                  //                 //       //       print(dec);
-                                  //                 //       //     } else {
-                                  //                 //       //       String temp =
-                                  //                 //       //           document.data();
-                                  //                 //       //       // document.data()["ItemName"];
-
-                                  //                 //       //       _removeFav(
-                                  //                 //       //           _email, temp);
-                                  //                 //       //       print("False");
-                                  //                 //       //     }
-                                  //                 //       //   },
-                                  //                 //       //   isFavorite:
-                                  //                 //       //       dec ? true : false,
-                                  //                 //       //   iconColor: Colors.grey,
-                                  //                 //       // )
-                                  //                 //     ],
-                                  //                 //   ),
-                                  //                 // ),
-                                  //                 // Padding(
-                                  //                 //   padding:
-                                  //                 //       const EdgeInsets.all(8.0),
-                                  //                 //   child: Text(
-                                  //                 //     // document.data()["Description"],
-                                  //                 //     document.data(),
-
-                                  //                 //     style: TextStyle(
-                                  //                 //         color: Colors.orange),
-                                  //                 //   ),
-                                  //                 // ),
-                                  //                 // Padding(
-                                  //                 //   padding:
-                                  //                 //       const EdgeInsets.all(8.0),
-                                  //                 //   child: ElevatedButton(
-                                  //                 //     style:
-                                  //                 //         ElevatedButton.styleFrom(
-                                  //                 //             padding:
-                                  //                 //                 EdgeInsets
-                                  //                 //                     .fromLTRB(
-                                  //                 //                         85,
-                                  //                 //                         10,
-                                  //                 //                         85,
-                                  //                 //                         10),
-                                  //                 //             primary:
-                                  //                 //                 Colors.orange),
-                                  //                 //     onPressed: () {
-                                  //                 //       _launchURL();
-                                  //                 //     },
-                                  //                 //     child: Text(
-                                  //                 //       "Buy",
-                                  //                 //       style: TextStyle(
-                                  //                 //           fontSize: 30,
-                                  //                 //           color: Colors.black),
-                                  //                 //     ),
-                                  //                 //   ),
-                                  //                 // ),
-                                  //                 // Padding(
-                                  //                 //   padding:
-                                  //                 //       const EdgeInsets.all(8.0),
-                                  //                 //   child: ElevatedButton(
-                                  //                 //       style: ElevatedButton
-                                  //                 //           .styleFrom(
-                                  //                 //               padding: EdgeInsets
-                                  //                 //                   .fromLTRB(65,
-                                  //                 //                       10, 65, 10),
-                                  //                 //               primary:
-                                  //                 //                   Colors.orange),
-                                  //                 //       onPressed: () {
-                                  //                 //         Navigator.of(context)
-                                  //                 //             .pop();
-                                  //                 //       },
-                                  //                 //       child: Text(
-                                  //                 //         "Cancel",
-                                  //                 //         style: TextStyle(
-                                  //                 //             fontSize: 30,
-                                  //                 //             color: Colors.black),
-                                  //                 //       )),
-                                  //                 // ),
-                                  //               ],
-                                  //             ),
-                                  //           ),
-                                  //         );
-                                  //       });
-                                  // },
-                                }),
+                                      return AlertDialog(
+                                        backgroundColor:
+                                            Colors.black.withOpacity(0.8),
+                                        title: Text(
+                                          document.get("ItemName") ??
+                                              "no data" +
+                                                  " - " +
+                                                  document.get("Size") ??
+                                              "No Data",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30,
+                                              color: Colors.orange),
+                                        ),
+                                        content: SingleChildScrollView(
+                                          child: Column(
+                                            children: [
+                                              Container(
+                                                height: 220,
+                                                width: 220,
+                                                color: Colors.black,
+                                                child: Image(
+                                                    image: NetworkImage(document
+                                                            .get("Image") ??
+                                                        "https://htmlcolorcodes.com/assets/images/colors/baby-blue-color-solid-background-1920x1080.png")),
+                                              ),
+                                              Container(
+                                                height: 50,
+                                                width: 220,
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceEvenly,
+                                                  children: [
+                                                    Center(
+                                                      child: Text(
+                                                        document.get("Price") ??
+                                                            "no data",
+                                                        style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            color:
+                                                                Colors.orange,
+                                                            fontSize: 25),
+                                                      ),
+                                                    ),
+                                                    FavoriteButton(
+                                                      valueChanged: (fav) {
+                                                        setState(() {
+                                                          fav = !fav;
+                                                        });
+                                                        if (fav = true) {
+                                                          _addFav(_email, temp);
+                                                          print(fav.toString() +
+                                                              temp);
+                                                          print(dec);
+                                                        } else {
+                                                          String temp = document
+                                                              .get("ItemName");
+                                                          _removeFav(
+                                                              _email, temp);
+                                                          print("False");
+                                                        }
+                                                      },
+                                                      isFavorite:
+                                                          dec ? true : false,
+                                                      iconColor: Colors.grey,
+                                                    )
+                                                  ],
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: Text(
+                                                  document.get("Description"),
+                                                  style: TextStyle(
+                                                      color: Colors.orange),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: ElevatedButton(
+                                                  style:
+                                                      ElevatedButton.styleFrom(
+                                                          padding:
+                                                              EdgeInsets
+                                                                  .fromLTRB(
+                                                                      85,
+                                                                      10,
+                                                                      85,
+                                                                      10),
+                                                          primary:
+                                                              Colors.orange),
+                                                  onPressed: () {
+                                                    _launchURL();
+                                                  },
+                                                  child: Text(
+                                                    "Buy",
+                                                    style: TextStyle(
+                                                        fontSize: 30,
+                                                        color: Colors.black),
+                                                  ),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: ElevatedButton(
+                                                    style: ElevatedButton
+                                                        .styleFrom(
+                                                            padding: EdgeInsets
+                                                                .fromLTRB(65,
+                                                                    10, 65, 10),
+                                                            primary:
+                                                                Colors.orange),
+                                                    onPressed: () {
+                                                      Navigator.of(context)
+                                                          .pop();
+                                                    },
+                                                    child: Text(
+                                                      "Cancel",
+                                                      style: TextStyle(
+                                                          fontSize: 30,
+                                                          color: Colors.black),
+                                                    )),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    });
+                              },
+                            ),
                           ),
                         );
                       }).toList(),
