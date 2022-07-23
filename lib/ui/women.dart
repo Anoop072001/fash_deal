@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shopping_app/ui/size/All.dart';
+import 'package:shopping_app/ui/Location/All.dart';
 
-import 'size/L.dart';
+import 'Location/L.dart';
 
 class Women extends StatefulWidget {
   @override

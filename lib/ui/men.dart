@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shopping_app/account/account.dart';
-import 'package:shopping_app/ui/size/All.dart';
-import 'package:shopping_app/ui/size/L.dart';
+import 'package:shopping_app/ui/Location/All.dart';
+import 'package:shopping_app/ui/Location/L.dart';
 
 class Men extends StatefulWidget {
   @override
