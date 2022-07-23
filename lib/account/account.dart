@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shopping_app/account/about_us/about.dart';
+import 'package:shopping_app/account/wishlist.dart';
 
 class Account extends StatefulWidget {
   @override
@@ -62,7 +63,7 @@ class _AccountState extends State<Account> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => About(),
+                  builder: (context) => Cart(),
                 ),
               );
             },

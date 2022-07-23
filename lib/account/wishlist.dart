@@ -33,7 +33,6 @@ class _CartState extends State<Cart> {
             )
           ],
         ),
-        elevation: 0.0,
       ),
     );
   }
