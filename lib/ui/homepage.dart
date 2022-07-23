@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -205,9 +207,9 @@ class _HomePageState extends State<HomePage> {
                     ),
                     child: Center(
                       child: Text(
-                        "-   Fashion is Life   -",
+                        "-   Connecting Life   -",
                         style: GoogleFonts.orbitron(
-                          textStyle: TextStyle(fontSize: 35),
+                          textStyle: TextStyle(fontSize: 33),
                         ),
                       ),
                     ),
@@ -280,8 +282,8 @@ class _HomePageState extends State<HomePage> {
                               ),
                               leading: CircleAvatar(
                                   radius: 30,
-                                  backgroundImage: NetworkImage(//document
-                                      //         .get("Image") ??
+                                  backgroundImage: NetworkImage(document
+                                          .get("Image") ??
                                       "https://htmlcolorcodes.com/assets/images/colors/baby-blue-color-solid-background-1920x1080.png")),
                               onTap: () {
                                 return showDialog(
@@ -312,16 +314,27 @@ class _HomePageState extends State<HomePage> {
                                       return AlertDialog(
                                         backgroundColor:
                                             Colors.black.withOpacity(0.8),
-                                        title: Text(
-                                          document.get("ItemName") ??
-                                              "no data" +
-                                                  " - " +
-                                                  document.get("Size") ??
-                                              "No Data",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 30,
-                                              color: Colors.orange),
+                                        title: Row(
+                                          children: [
+                                            Text(
+                                              document.get("ItemName") ??
+                                                  "no data",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 30,
+                                                  color: Colors.orange),
+                                            ),
+                                            SizedBox(
+                                              width: 20,
+                                            ),
+                                            Text(
+                                              document.get("Size") ?? "No Data",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 30,
+                                                  color: Colors.orange),
+                                            )
+                                          ],
                                         ),
                                         content: SingleChildScrollView(
                                           child: Column(
