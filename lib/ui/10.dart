@@ -97,26 +97,26 @@ class _TenState extends State<Ten> {
                       Container(
                         height: 50,
                         child: Tab(
-                          text: "Med",
+                          text: "MyG",
                         ),
                       ),
                       Container(
                         height: 50,
                         child: Tab(
-                          text: "Large",
+                          text: "Venus Digital",
                         ),
                       ),
                       Container(
                         height: 50,
                         child: Tab(
-                          text: "XL",
+                          text: "Elite SM",
                         ),
                       ),
                       Container(
                         height: 50,
                         child: Tab(
                           //icon: Image.asset(Constants.kHornIcon),
-                          text: "XXL",
+                          text: "Kalyan HM",
                         ),
                       ),
                     ],
@@ -128,10 +128,10 @@ class _TenState extends State<Ten> {
         ),
         body: TabBarView(children: [
           All(category: "Men"),
-          Large(category: "Men", size: "M"),
-          Large(category: "Men", size: "L"),
-          Large(category: "Men", size: "XL"),
-          Large(category: "Men", size: "XXL"),
+          Large(category: "Men", size: "MyG"),
+          Large(category: "Men", size: "Venus Digital"),
+          Large(category: "Men", size: "Elite SM"),
+          Large(category: "Men", size: "Kalyan HM"),
         ]),
       ),
     );

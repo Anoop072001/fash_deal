@@ -478,7 +478,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _launchURL() async {
-    String url = "https://www.finlage.in/upi-pay/00003E1";
+    String url = "https://www.finlage.in/upi-pay/0000AV5";
     if (await canLaunch(url)) {
       await launch(url);
     } else {

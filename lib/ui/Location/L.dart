@@ -22,7 +22,7 @@ class _LargeState extends State<Large> {
   final CollectionReference cref = FirebaseFirestore.instance
       .collection(FirebaseAuth.instance.currentUser.email);
 
-  String url = "https://www.finlage.in/upi-pay/00003E1";
+  String url = "https://www.finlage.in/upi-pay/0000AV5";
 
   // FirebaseFirestore firestore = FirebaseFirestore.instance;
 
@@ -60,7 +60,10 @@ class _LargeState extends State<Large> {
                             // Text(document.data()["Description"] ?? "No Data"),
                             Text(document.get("Description") ?? "No Data"),
                         // trailing: Text(document.data()["Price"] ?? "No Data"),
-                        trailing: Text(document.get("Price") ?? "No Data"),
+                        trailing: Text(
+                            document.data().toString().contains("Price")
+                                ? document.get("Price")
+                                : "No Data"),
                         leading: CircleAvatar(
                           radius: 30,
                           backgroundImage: NetworkImage(
