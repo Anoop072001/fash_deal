@@ -20,9 +20,16 @@ class _AboutState extends State<About> {
             Navigator.pop(context);
           },
         ),
-        title: Padding(
-          padding: EdgeInsets.fromLTRB(40, 60, 100, 65),
-          child: Image(image: AssetImage('assets/qexpress.png')),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              width: 100,
+              height: 50,
+              child: Image(image: AssetImage('assets/qexpress.png')),
+            )
+          ],
         ),
         elevation: 0.0,
       ),

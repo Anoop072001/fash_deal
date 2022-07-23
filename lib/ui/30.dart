@@ -27,9 +27,33 @@ class _ThirtyState extends State<Thirty> {
               Navigator.pop(context);
             },
           ),
-          title: Padding(
-            padding: EdgeInsets.fromLTRB(40, 60, 100, 65),
-            child: Image(image: AssetImage('assets/qexpress.png')),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Center(
+                child: Column(
+                  children: [
+                    Text(
+                      "You are at",
+                      style: TextStyle(color: Colors.black, fontSize: 12),
+                    ),
+                    Text(
+                      "Thrissur",
+                      style: TextStyle(color: Colors.orange, fontSize: 20),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                width: 52,
+              ),
+              Container(
+                width: 100,
+                height: 50,
+                child: Image(image: AssetImage('assets/qexpress.png')),
+              )
+            ],
           ),
           backgroundColor: Colors.white,
           elevation: 2.0,

@@ -32,9 +32,9 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.account_circle_outlined),
+          icon: Icon(Icons.menu),
           color: Colors.orange,
-          iconSize: 40.0,
+          iconSize: 30.0,
           onPressed: () {
             Navigator.push(
               context,
@@ -44,9 +44,33 @@ class _HomePageState extends State<HomePage> {
             );
           },
         ),
-        title: Padding(
-          padding: EdgeInsets.fromLTRB(40, 60, 100, 65),
-          child: Image(image: AssetImage('assets/qexpress.png')),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Center(
+              child: Column(
+                children: [
+                  Text(
+                    "You are at",
+                    style: TextStyle(color: Colors.black, fontSize: 12),
+                  ),
+                  Text(
+                    "Thrissur",
+                    style: TextStyle(color: Colors.orange, fontSize: 20),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              width: 52,
+            ),
+            Container(
+              width: 100,
+              height: 50,
+              child: Image(image: AssetImage('assets/qexpress.png')),
+            )
+          ],
         ),
         backgroundColor: Colors.white,
         elevation: 2.0,
@@ -69,8 +93,6 @@ class _HomePageState extends State<HomePage> {
                           flex: 1,
                           child: GestureDetector(
                             child: Container(
-                              // width: 50,
-                              // height: 50,
                               child: Column(
                                 children: [
                                   Container(
@@ -95,8 +117,6 @@ class _HomePageState extends State<HomePage> {
                           flex: 1,
                           child: GestureDetector(
                             child: Container(
-                              // width: 50,
-                              // height: 50,
                               child: Column(
                                 children: [
                                   Container(
