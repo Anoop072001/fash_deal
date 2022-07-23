@@ -77,8 +77,7 @@ class _HomePageState extends State<HomePage> {
                                       width: 30,
                                       height: 30,
                                       child: Image(
-                                          image:
-                                              AssetImage('assets/shirt.png'))),
+                                          image: AssetImage('assets/all.png'))),
                                   Container(
                                       child: Text(
                                     "All",
@@ -89,9 +88,7 @@ class _HomePageState extends State<HomePage> {
                                 ],
                               ),
                             ),
-                            onTap: () {
-                              Navigator.pushNamed(context, '/all');
-                            },
+                            onTap: () {},
                           ),
                         ),
                         Expanded(
@@ -106,11 +103,10 @@ class _HomePageState extends State<HomePage> {
                                       width: 30,
                                       height: 30,
                                       child: Image(
-                                          image:
-                                              AssetImage('assets/mens.png'))),
+                                          image: AssetImage('assets/10.png'))),
                                   Container(
                                       child: Text(
-                                    "Men's",
+                                    "KM",
                                     style: TextStyle(
                                       fontSize: 12.0,
                                     ),
@@ -133,11 +129,10 @@ class _HomePageState extends State<HomePage> {
                                       width: 30,
                                       height: 30,
                                       child: Image(
-                                          image:
-                                              AssetImage('assets/womens.png'))),
+                                          image: AssetImage('assets/20.png'))),
                                   Container(
                                     child: Text(
-                                      "Women's",
+                                      "KM",
                                       style: TextStyle(
                                         fontSize: 12.0,
                                       ),
@@ -163,12 +158,12 @@ class _HomePageState extends State<HomePage> {
                                     width: 30,
                                     height: 30,
                                     child: Image(
-                                      image: AssetImage('assets/children.png'),
+                                      image: AssetImage('assets/30.png'),
                                     ),
                                   ),
                                   Container(
                                       child: Text(
-                                    "Children's",
+                                    "KM",
                                     style: TextStyle(
                                       fontSize: 12.0,
                                     ),
