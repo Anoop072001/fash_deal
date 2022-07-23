@@ -6,12 +6,12 @@ import 'package:shopping_app/account/account.dart';
 import 'package:shopping_app/ui/Location/All.dart';
 import 'package:shopping_app/ui/Location/L.dart';
 
-class Men extends StatefulWidget {
+class Ten extends StatefulWidget {
   @override
   _MenState createState() => _MenState();
 }
 
-class _MenState extends State<Men> {
+class _MenState extends State<Ten> {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   TabController tabController;
   @override

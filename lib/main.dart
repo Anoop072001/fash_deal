@@ -2,11 +2,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping_app/account/about_us/about.dart';
 import 'package:shopping_app/account/account.dart';
-import 'package:shopping_app/ui/child.dart';
+import 'package:shopping_app/ui/30.dart';
 import 'package:shopping_app/ui/homepage.dart';
 import 'package:shopping_app/ui/authentication.dart';
-import 'package:shopping_app/ui/men.dart';
-import 'package:shopping_app/ui/women.dart';
+import 'package:shopping_app/ui/10.dart';
+import 'package:shopping_app/ui/20.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,10 +16,10 @@ void main() async {
     routes: {
       '/': (context) => MyApp(),
       '/home': (context) => HomePage(),
-      '/men': (context) => Men(),
-      '/women': (context) => Women(),
+      '/men': (context) => Ten(),
+      '/women': (context) => Twenty(),
       '/account': (context) => Account(),
-      '/child': (context) => Child(),
+      '/child': (context) => Thirty(),
       '/about': (context) => About(),
     },
   ));

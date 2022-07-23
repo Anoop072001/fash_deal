@@ -21,12 +21,8 @@ class _AboutState extends State<About> {
           },
         ),
         title: Padding(
-          padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
-          child: Text(
-            "FashDeal",
-            style: GoogleFonts.greatVibes(
-                textStyle: TextStyle(fontSize: 40, color: Colors.orange)),
-          ),
+          padding: EdgeInsets.fromLTRB(40, 60, 100, 65),
+          child: Image(image: AssetImage('assets/qexpress.png')),
         ),
         elevation: 0.0,
       ),
@@ -115,7 +111,7 @@ class _AboutState extends State<About> {
                             height: 30,
                           ),
                           Text(
-                            "FlashDeal,\nNear Christ College of Engineering Irinjalkuda,680121\nThrissur,Kerala\nIndia",
+                            "Q-Express,\nNear Christ College of Engineering Irinjalkuda,680121\nThrissur,Kerala\nIndia",
                             style: TextStyle(
                               fontSize: 20,
                             ),

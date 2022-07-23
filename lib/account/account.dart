@@ -22,12 +22,8 @@ class _AccountState extends State<Account> {
           },
         ),
         title: Padding(
-          padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
-          child: Text(
-            "FashDeal",
-            style: GoogleFonts.greatVibes(
-                textStyle: TextStyle(fontSize: 40, color: Colors.orange)),
-          ),
+          padding: EdgeInsets.fromLTRB(40, 60, 100, 65),
+          child: Image(image: AssetImage('assets/qexpress.png')),
         ),
       ),
       body: Column(
@@ -47,52 +43,56 @@ class _AccountState extends State<Account> {
           ),
           Center(
             child: Text(
-              "My Account",
+              "Navigation",
               style: TextStyle(color: Colors.black, fontSize: 18),
             ),
           ),
           SizedBox(
             height: 30.0,
           ),
-          // GestureDetector(
-          //   onTap: () {
-          //     Navigator.push(
-          //         context,
-          //         MaterialPageRoute(
-          //           builder: (context) => Wishlist(),
-          //         ));
-          //   },
-          //   child: Container(
-          //     width: MediaQuery.of(context).size.width,
-          //     height: 50,
-          //     decoration: BoxDecoration(
-          //       borderRadius: BorderRadius.circular(10.0),
-          //       color: Colors.orange,
-          //     ),
-          //     child: Row(
-          //       mainAxisAlignment: MainAxisAlignment.center,
-          //       children: [
-          //         Icon(
-          //           Icons.favorite,
-          //           color: Colors.white,
-          //         ),
-          //         Center(
-          //           child: Text(
-          //             " Wishlist",
-          //             style: TextStyle(
-          //               color: Colors.white,
-          //               fontSize: 18,
-          //               fontWeight: FontWeight.bold,
-          //             ),
-          //           ),
-          //         ),
-          //       ],
-          //     ),
-          //   ),
-          // ),
-          // SizedBox(
-          //   height: 10,
-          // ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => About(),
+                ),
+              );
+            },
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: 50,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                color: Colors.orange,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.shop,
+                    color: Colors.white,
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Center(
+                    child: Text(
+                      "WishList",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 10.0,
+          ),
           GestureDetector(
             onTap: () {
               Navigator.push(
@@ -116,9 +116,12 @@ class _AccountState extends State<Account> {
                     Icons.phone,
                     color: Colors.white,
                   ),
+                  SizedBox(
+                    width: 10,
+                  ),
                   Center(
                     child: Text(
-                      " About Us",
+                      "Customer Support",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,

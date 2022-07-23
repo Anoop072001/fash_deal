@@ -5,12 +5,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'Location/All.dart';
 import 'Location/L.dart';
 
-class Child extends StatefulWidget {
+class Thirty extends StatefulWidget {
   @override
   _ChildState createState() => _ChildState();
 }
 
-class _ChildState extends State<Child> {
+class _ChildState extends State<Thirty> {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   TabController tabController;
   @override
