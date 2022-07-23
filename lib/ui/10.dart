@@ -8,10 +8,10 @@ import 'package:shopping_app/ui/Location/L.dart';
 
 class Ten extends StatefulWidget {
   @override
-  _MenState createState() => _MenState();
+  _TenState createState() => _TenState();
 }
 
-class _MenState extends State<Ten> {
+class _TenState extends State<Ten> {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   TabController tabController;
   @override

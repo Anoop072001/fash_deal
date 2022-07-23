@@ -7,10 +7,10 @@ import 'Location/L.dart';
 
 class Twenty extends StatefulWidget {
   @override
-  _WomenState createState() => _WomenState();
+  _TwentyState createState() => _TwentyState();
 }
 
-class _WomenState extends State<Twenty> {
+class _TwentyState extends State<Twenty> {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   TabController tabController;
   @override

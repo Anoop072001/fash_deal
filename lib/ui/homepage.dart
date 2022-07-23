@@ -44,13 +44,6 @@ class _HomePageState extends State<HomePage> {
             );
           },
         ),
-        // actions: [
-        //   IconButton(
-        //       icon: Icon(Icons.favorite),
-        //       iconSize: 30,
-        //       color: Colors.orange,
-        //       onPressed: () {})
-        // ],
         title: Padding(
           padding: EdgeInsets.fromLTRB(40, 60, 100, 65),
           child: Image(image: AssetImage('assets/qexpress.png')),
