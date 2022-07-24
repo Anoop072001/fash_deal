@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -17,10 +19,10 @@ class Cart extends StatefulWidget {
 
 class _CartState extends State<Cart> {
   final FirebaseAuth auth = FirebaseAuth.instance;
-  var x = 1;
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
   final CollectionReference cref = FirebaseFirestore.instance
       .collection(FirebaseAuth.instance.currentUser.email);
+  final _email = FirebaseAuth.instance.currentUser.email;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,155 +57,155 @@ class _CartState extends State<Cart> {
                 shrinkWrap: true,
                 physics: ClampingScrollPhysics(),
                 children: snapshot.data.docs.map((DocumentSnapshot document) {
-                  if (x == 1) {
-                    return ListTile(
-                        title: Text(
-                          document.data().toString().contains("Item")
-                              ? document.get("Item")
-                              : "no data",
-                          style: TextStyle(
-                              color: Colors.orange,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 23),
-                        ),
-                        subtitle: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              document.data().toString().contains("Descp")
-                                  ? document.get("Descp")
-                                  : "no data",
-                            ),
-                            Text(
-                              document.data().toString().contains("Price")
-                                  ? document.get("Price")
-                                  : "no data",
-                            ),
-                          ],
-                        ),
-                        trailing: Container(
-                          height: 35,
-                          width: 80,
-                          child: Center(
-                            child: Padding(
-                              padding: const EdgeInsets.all(1.0),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    "Rs.",
-                                    style: TextStyle(
-                                        fontSize: 15, color: Colors.black),
-                                  ),
-                                  Text(
-                                    document.data().toString().contains("Price")
-                                        ? document.get("Price")
-                                        : "Nodata",
-                                    style: TextStyle(
-                                        fontSize: 15, color: Colors.black),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        leading: CircleAvatar(
-                          radius: 30,
-                          backgroundImage: NetworkImage(
-                            document.data().toString().contains("Img")
-                                ? document.get("Img")
+                  return ListTile(
+                      title: Text(
+                        document.data().toString().contains("Item")
+                            ? document.get("Item")
+                            : "no data",
+                        style: TextStyle(
+                            color: Colors.orange,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 23),
+                      ),
+                      subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            document.data().toString().contains("Descp")
+                                ? document.get("Descp")
                                 : "no data",
                           ),
+                          Text(
+                            document.data().toString().contains("Price")
+                                ? document.get("Price")
+                                : "no data",
+                          ),
+                        ],
+                      ),
+                      trailing: Container(
+                        height: 35,
+                        width: 80,
+                        child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.all(1.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  "Rs.",
+                                  style: TextStyle(
+                                      fontSize: 15, color: Colors.black),
+                                ),
+                                Text(
+                                  document.data().toString().contains("Price")
+                                      ? document.get("Price")
+                                      : "Nodata",
+                                  style: TextStyle(
+                                      fontSize: 15, color: Colors.black),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-                        onTap: () {
-                          return showDialog(
-                              context: context,
-                              builder: (context) {
-                                bool fav = false;
-                                String temp =
-                                    document.data().toString().contains("Item")
-                                        ? document.get("Item")
-                                        : "NoData";
+                      ),
+                      leading: CircleAvatar(
+                        radius: 30,
+                        backgroundImage: NetworkImage(
+                          document.data().toString().contains("Img")
+                              ? document.get("Img")
+                              : "no data",
+                        ),
+                      ),
+                      onTap: () {
+                        return showDialog(
+                            context: context,
+                            builder: (context) {
+                              bool fav = false;
+                              String temp =
+                                  document.data().toString().contains("Item")
+                                      ? document.get("Item")
+                                      : "NoData";
 
-                                return AlertDialog(
-                                  backgroundColor:
-                                      Colors.black.withOpacity(0.8),
-                                  title: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
+                              return AlertDialog(
+                                backgroundColor: Colors.black.withOpacity(0.8),
+                                title: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      document
+                                              .data()
+                                              .toString()
+                                              .contains("Item")
+                                          ? document.get("Item")
+                                          : "no data",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 28,
+                                          color: Colors.orange),
+                                    ),
+                                  ],
+                                ),
+                                content: SingleChildScrollView(
+                                  child: Column(
                                     children: [
-                                      Text(
-                                        document
-                                                .data()
-                                                .toString()
-                                                .contains("Item")
-                                            ? document.get("Item")
-                                            : "no data",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 28,
-                                            color: Colors.orange),
+                                      Container(
+                                        height: 220,
+                                        width: 220,
+                                        color: Colors.black,
+                                        child: Image(
+                                            image: NetworkImage(
+                                                document.get("Img"))),
                                       ),
-                                    ],
-                                  ),
-                                  content: SingleChildScrollView(
-                                    child: Column(
-                                      children: [
-                                        Container(
-                                          height: 220,
-                                          width: 220,
-                                          color: Colors.black,
-                                          child: Image(
-                                              image: NetworkImage(
-                                                  document.get("Img"))),
-                                        ),
-                                        Container(
-                                          height: 50,
-                                          width: 220,
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceEvenly,
-                                            children: [
-                                              Center(
-                                                child: Row(
-                                                  children: [
-                                                    Text(
-                                                      "Rs.",
-                                                      style: TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          color: Colors.orange,
-                                                          fontSize: 25),
-                                                    ),
-                                                    Text(
-                                                      document
-                                                              .data()
-                                                              .toString()
-                                                              .contains("Price")
-                                                          ? document
-                                                              .get("Price")
-                                                          : "Nodata",
-                                                      style: TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          color: Colors.orange,
-                                                          fontSize: 25),
-                                                    ),
-                                                  ],
-                                                ),
+                                      Container(
+                                        height: 50,
+                                        width: 220,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Center(
+                                              child: Row(
+                                                children: [
+                                                  Text(
+                                                    "Rs.",
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        color: Colors.orange,
+                                                        fontSize: 25),
+                                                  ),
+                                                  Text(
+                                                    document
+                                                            .data()
+                                                            .toString()
+                                                            .contains("Price")
+                                                        ? document.get("Price")
+                                                        : "Nodata",
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        color: Colors.orange,
+                                                        fontSize: 25),
+                                                  ),
+                                                ],
                                               ),
-                                            ],
-                                          ),
+                                            ),
+                                          ],
                                         ),
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: Text(
-                                            document.get("Descp") ?? "no data",
-                                            style:
-                                                TextStyle(color: Colors.orange),
-                                          ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Text(
+                                          document.get("Descp") ?? "no data",
+                                          style:
+                                              TextStyle(color: Colors.orange),
                                         ),
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Container(
+                                          height: 70,
+                                          width: 260,
                                           child: ElevatedButton(
                                             style: ElevatedButton.styleFrom(
                                                 padding: EdgeInsets.fromLTRB(
@@ -220,32 +222,55 @@ class _CartState extends State<Cart> {
                                             ),
                                           ),
                                         ),
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Container(
+                                          height: 70,
+                                          width: 260,
                                           child: ElevatedButton(
                                               style: ElevatedButton.styleFrom(
                                                   padding: EdgeInsets.fromLTRB(
                                                       65, 10, 65, 10),
                                                   primary: Colors.orange),
                                               onPressed: () {
-                                                Navigator.of(context).pop();
+                                                _removeFav(
+                                                  _email,
+                                                  temp,
+                                                );
                                               },
-                                              child: Text(
-                                                "Cancel",
-                                                style: TextStyle(
-                                                    fontSize: 30,
-                                                    color: Colors.black),
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Icon(
+                                                    Icons.delete,
+                                                    size: 30.0,
+                                                    color: Colors.black,
+                                                  ),
+                                                  SizedBox(
+                                                    width: 5,
+                                                  ),
+                                                  Container(
+                                                    height: 40,
+                                                    width: 90,
+                                                    child: Text(
+                                                      "Delete",
+                                                      style: TextStyle(
+                                                          fontSize: 28,
+                                                          color: Colors.black),
+                                                    ),
+                                                  ),
+                                                ],
                                               )),
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
-                                );
-                              });
-                        });
-                  } else {
-                    return Container();
-                  }
+                                ),
+                              );
+                            });
+                      });
                 }).toList(),
               );
             } else {
@@ -262,5 +287,9 @@ class _CartState extends State<Cart> {
     } else {
       print('Could not launch $url');
     }
+  }
+
+  void _removeFav(_email, temp) {
+    cref.doc(temp).delete();
   }
 }

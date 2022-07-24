@@ -51,7 +51,7 @@ class _AccountState extends State<Account> {
           ),
           Center(
             child: Text(
-              "Navigation",
+              "NavScreen",
               style: TextStyle(color: Colors.black, fontSize: 18),
             ),
           ),
