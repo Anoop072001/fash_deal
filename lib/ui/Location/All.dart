@@ -107,24 +107,24 @@ class _AllState extends State<All> {
                                     ? document.get("ItemName")
                                     : "NoData";
 
-                                bool dec = true;
-                                var deca = FirebaseFirestore.instance
-                                    .collection(_email)
-                                    .doc(temp)
-                                    .get()
-                                    .then((doc) {
-                                  if (doc.data()["fav"] == true) {
-                                    setState(() {
-                                      dec = true;
-                                    });
-                                    print(dec);
-                                  } else if (doc.data()["fav"] == false) {
-                                    setState(() {
-                                      dec = false;
-                                    });
-                                    print(dec);
-                                  }
-                                });
+                                // bool dec = true;
+                                // var deca = FirebaseFirestore.instance
+                                //     .collection(_email)
+                                //     .doc(temp)
+                                //     .get()
+                                //     .then((doc) {
+                                //   if (doc.data()["fav"] == true) {
+                                //     setState(() {
+                                //       dec = true;
+                                //     });
+                                //     print(dec);
+                                //   } else if (doc.data()["fav"] == false) {
+                                //     setState(() {
+                                //       dec = false;
+                                //     });
+                                //     print(dec);
+                                //   }
+                                // });
 
                                 return AlertDialog(
                                   backgroundColor:
@@ -182,13 +182,15 @@ class _AllState extends State<All> {
                                               FavoriteButton(
                                                 valueChanged: (fav) {
                                                   setState(() {
-                                                    //fav = !fav;
+                                                    // print("changed");
+                                                    fav = !fav;
+                                                    print(fav);
                                                   });
-                                                  if (fav = true) {
+                                                  if (fav == true) {
                                                     _addFav(_email, temp);
                                                     print(
                                                         fav.toString() + temp);
-                                                    print(dec);
+                                                    // print(dec);
                                                   } else {
                                                     String temp = document
                                                         .get("ItemName");
@@ -197,7 +199,7 @@ class _AllState extends State<All> {
                                                     print("False");
                                                   }
                                                 },
-                                                isFavorite: dec ? true : false,
+                                                isFavorite: fav ? true : false,
                                                 iconColor: Colors.orange,
                                               )
                                             ],
@@ -282,8 +284,6 @@ class _AllState extends State<All> {
   }
 
   void _removeFav(_email, temp) {
-    cref.doc(temp).set({
-      "fav": false,
-    });
+    cref.doc(temp).delete();
   }
 }
