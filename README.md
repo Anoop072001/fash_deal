@@ -14,6 +14,7 @@ BFH/recG6MSwqEgHFzyrU/2021
 2. Register with you're email and password/ Log in with your email and password(If already registered)//Pls Be patient it might take a few mins(or use email-anoop@gmail.com || password - wasdww  (only if registeration not working)).
 3. Surf through it ,find what you want and since its a dummy app you cannot buy anything but will take you to the site for transaction
 4. There is a account icon in top left corner , You can go there and find about us. 
+
 ## Libraries used
 firebase_core: ^1.20.0
   firebase_auth: ^3.5.0
@@ -23,5 +24,6 @@ firebase_core: ^1.20.0
   http: ^0.13.4
   url_launcher: ^6.1.5
   favorite_button: ^0.0.4
+
 ## App Link
 [https://drive.google.com/drive/folders/1cK5GC5xEvmMQqnTC6VC42-htSKKRdyYT?usp=sharing]
