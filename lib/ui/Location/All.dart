@@ -19,6 +19,7 @@ class _AllState extends State<All> {
   final CollectionReference cref = FirebaseFirestore.instance
       .collection(FirebaseAuth.instance.currentUser.email);
   final String category;
+  bool fav = false;
 
   _AllState(this.category);
   @override
@@ -99,32 +100,12 @@ class _AllState extends State<All> {
                           return showDialog(
                               context: context,
                               builder: (context) {
-                                bool fav = false;
                                 String temp = document
                                         .data()
                                         .toString()
                                         .contains("ItemName")
                                     ? document.get("ItemName")
                                     : "NoData";
-
-                                // bool dec = true;
-                                // var deca = FirebaseFirestore.instance
-                                //     .collection(_email)
-                                //     .doc(temp)
-                                //     .get()
-                                //     .then((doc) {
-                                //   if (doc.data()["fav"] == true) {
-                                //     setState(() {
-                                //       dec = true;
-                                //     });
-                                //     print(dec);
-                                //   } else if (doc.data()["fav"] == false) {
-                                //     setState(() {
-                                //       dec = false;
-                                //     });
-                                //     print(dec);
-                                //   }
-                                // });
 
                                 return AlertDialog(
                                   backgroundColor:
@@ -183,19 +164,29 @@ class _AllState extends State<All> {
                                                 valueChanged: (fav) {
                                                   setState(() {
                                                     // print("changed");
-                                                    fav = !fav;
+                                                    fav = fav;
                                                     print(fav);
                                                   });
                                                   if (fav == true) {
-                                                    _addFav(_email, temp);
+                                                    String temp = document
+                                                        .get("ItemName");
+                                                    String temp1 = document
+                                                        .get("Description");
+                                                    String temp2 =
+                                                        document.get("Price");
+                                                    String temp3 =
+                                                        document.get("Image");
+
+                                                    _addFav(_email, temp, temp1,
+                                                        temp2, temp3);
                                                     print(
                                                         fav.toString() + temp);
                                                     // print(dec);
                                                   } else {
-                                                    String temp = document
-                                                        .get("ItemName");
-
-                                                    _removeFav(_email, temp);
+                                                    _removeFav(
+                                                      _email,
+                                                      temp,
+                                                    );
                                                     print("False");
                                                   }
                                                 },
@@ -276,10 +267,13 @@ class _AllState extends State<All> {
     }
   }
 
-  void _addFav(_email, temp) {
+  void _addFav(_email, temp, temp1, temp2, temp3) {
     cref.doc(temp).set({
       "fav": true,
       "Item": temp,
+      "Descp": temp1,
+      "Price": temp2,
+      "Img": temp3
     });
   }
 

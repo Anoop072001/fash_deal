@@ -116,164 +116,119 @@ class _CartState extends State<Cart> {
                           ),
                         ),
                         onTap: () {
-                          // return showDialog(
-                          //     context: context,
-                          //     builder: (context) {
-                          //       bool fav = false;
-                          //       String temp = document
-                          //               .data()
-                          //               .toString()
-                          //               .contains("ItemName")
-                          //           ? document.get("ItemName")
-                          //           : "NoData";
+                          return showDialog(
+                              context: context,
+                              builder: (context) {
+                                bool fav = false;
+                                String temp =
+                                    document.data().toString().contains("Item")
+                                        ? document.get("Item")
+                                        : "NoData";
 
-                          //       // bool dec = true;
-                          //       // var deca = FirebaseFirestore.instance
-                          //       //     .collection(_email)
-                          //       //     .doc(temp)
-                          //       //     .get()
-                          //       //     .then((doc) {
-                          //       //   if (doc.data()["fav"] == true) {
-                          //       //     setState(() {
-                          //       //       dec = true;
-                          //       //     });
-                          //       //     print(dec);
-                          //       //   } else if (doc.data()["fav"] == false) {
-                          //       //     setState(() {
-                          //       //       dec = false;
-                          //       //     });
-                          //       //     print(dec);
-                          //       //   }
-                          //       // });
-
-                          //       return AlertDialog(
-                          //         backgroundColor:
-                          //             Colors.black.withOpacity(0.8),
-                          //         title: Row(
-                          //           mainAxisAlignment: MainAxisAlignment.center,
-                          //           children: [
-                          //             Text(
-                          //               document
-                          //                       .data()
-                          //                       .toString()
-                          //                       .contains("ItemName")
-                          //                   ? document.get("ItemName")
-                          //                   : "no data",
-                          //               style: TextStyle(
-                          //                   fontWeight: FontWeight.bold,
-                          //                   fontSize: 30,
-                          //                   color: Colors.orange),
-                          //             ),
-                          //           ],
-                          //         ),
-                          //         content: SingleChildScrollView(
-                          //           child: Column(
-                          //             children: [
-                          //               Container(
-                          //                 height: 220,
-                          //                 width: 220,
-                          //                 color: Colors.black,
-                          //                 child: Image(
-                          //                     image: NetworkImage(
-                          //                         document.get("Image"))),
-                          //               ),
-                          //               Container(
-                          //                 height: 50,
-                          //                 width: 220,
-                          //                 child: Row(
-                          //                   mainAxisAlignment:
-                          //                       MainAxisAlignment.spaceEvenly,
-                          //                   children: [
-                          //                     Center(
-                          //                       child: Text(
-                          //                         document
-                          //                                 .data()
-                          //                                 .toString()
-                          //                                 .contains("ItemName")
-                          //                             ? document.get("ItemName")
-                          //                             : "Nodata",
-                          //                         style: TextStyle(
-                          //                             fontWeight:
-                          //                                 FontWeight.bold,
-                          //                             color: Colors.orange,
-                          //                             fontSize: 25),
-                          //                       ),
-                          //                     ),
-                          //                     FavoriteButton(
-                          //                       valueChanged: (fav) {
-                          //                         setState(() {
-                          //                           // print("changed");
-                          //                           fav = !fav;
-                          //                           print(fav);
-                          //                         });
-                          //                         if (fav == true) {
-                          //                           _addFav(_email, temp);
-                          //                           print(
-                          //                               fav.toString() + temp);
-                          //                           // print(dec);
-                          //                         } else {
-                          //                           String temp = document
-                          //                               .get("ItemName");
-
-                          //                           _removeFav(_email, temp);
-                          //                           print("False");
-                          //                         }
-                          //                       },
-                          //                       isFavorite: fav ? true : false,
-                          //                       iconColor: Colors.orange,
-                          //                     )
-                          //                   ],
-                          //                 ),
-                          //               ),
-                          //               Padding(
-                          //                 padding: const EdgeInsets.all(8.0),
-                          //                 child: Text(
-                          //                   document.get("Description") ??
-                          //                       "no data",
-                          //                   style:
-                          //                       TextStyle(color: Colors.orange),
-                          //                 ),
-                          //               ),
-                          //               Padding(
-                          //                 padding: const EdgeInsets.all(8.0),
-                          //                 child: ElevatedButton(
-                          //                   style: ElevatedButton.styleFrom(
-                          //                       padding: EdgeInsets.fromLTRB(
-                          //                           85, 10, 85, 10),
-                          //                       primary: Colors.orange),
-                          //                   onPressed: () {
-                          //                     _launchURL();
-                          //                   },
-                          //                   child: Text(
-                          //                     "Buy",
-                          //                     style: TextStyle(
-                          //                         fontSize: 30,
-                          //                         color: Colors.black),
-                          //                   ),
-                          //                 ),
-                          //               ),
-                          //               Padding(
-                          //                 padding: const EdgeInsets.all(8.0),
-                          //                 child: ElevatedButton(
-                          //                     style: ElevatedButton.styleFrom(
-                          //                         padding: EdgeInsets.fromLTRB(
-                          //                             65, 10, 65, 10),
-                          //                         primary: Colors.orange),
-                          //                     onPressed: () {
-                          //                       Navigator.of(context).pop();
-                          //                     },
-                          //                     child: Text(
-                          //                       "Cancel",
-                          //                       style: TextStyle(
-                          //                           fontSize: 30,
-                          //                           color: Colors.black),
-                          //                     )),
-                          //               ),
-                          //             ],
-                          //           ),
-                          //         ),
-                          //       );
-                          //     });
+                                return AlertDialog(
+                                  backgroundColor:
+                                      Colors.black.withOpacity(0.8),
+                                  title: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        document
+                                                .data()
+                                                .toString()
+                                                .contains("Item")
+                                            ? document.get("Item")
+                                            : "no data",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 30,
+                                            color: Colors.orange),
+                                      ),
+                                    ],
+                                  ),
+                                  content: SingleChildScrollView(
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                          height: 220,
+                                          width: 220,
+                                          color: Colors.black,
+                                          child: Image(
+                                              image: NetworkImage(
+                                                  document.get("Img"))),
+                                        ),
+                                        Container(
+                                          height: 50,
+                                          width: 220,
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
+                                            children: [
+                                              Center(
+                                                child: Text(
+                                                  document
+                                                          .data()
+                                                          .toString()
+                                                          .contains("Item")
+                                                      ? document.get("Item")
+                                                      : "Nodata",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: Colors.orange,
+                                                      fontSize: 25),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Text(
+                                            document.get("Descp") ?? "no data",
+                                            style:
+                                                TextStyle(color: Colors.orange),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: ElevatedButton(
+                                            style: ElevatedButton.styleFrom(
+                                                padding: EdgeInsets.fromLTRB(
+                                                    85, 10, 85, 10),
+                                                primary: Colors.orange),
+                                            onPressed: () {
+                                              _launchURL();
+                                            },
+                                            child: Text(
+                                              "Buy",
+                                              style: TextStyle(
+                                                  fontSize: 30,
+                                                  color: Colors.black),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: ElevatedButton(
+                                              style: ElevatedButton.styleFrom(
+                                                  padding: EdgeInsets.fromLTRB(
+                                                      65, 10, 65, 10),
+                                                  primary: Colors.orange),
+                                              onPressed: () {
+                                                Navigator.of(context).pop();
+                                              },
+                                              child: Text(
+                                                "Cancel",
+                                                style: TextStyle(
+                                                    fontSize: 30,
+                                                    color: Colors.black),
+                                              )),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              });
                         });
                   } else {
                     return Container();
@@ -285,5 +240,14 @@ class _CartState extends State<Cart> {
             }
           }),
     );
+  }
+
+  void _launchURL() async {
+    String url = "https://www.finlage.in/upi-pay/0000AV5";
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      print('Could not launch $url');
+    }
   }
 }

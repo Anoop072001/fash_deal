@@ -47,9 +47,9 @@ class _AboutState extends State<About> {
                   ),
                   child: Center(
                     child: Text(
-                      "-   About Us   -",
+                      "-   Customer Query   -",
                       style: GoogleFonts.orbitron(
-                        textStyle: TextStyle(fontSize: 35),
+                        textStyle: TextStyle(fontSize: 30),
                       ),
                     ),
                   ),
@@ -62,7 +62,7 @@ class _AboutState extends State<About> {
                 child: Column(
                   children: [
                     Text(
-                      "Got Any problems while surfacing?",
+                      "Got Any problems while surfing?",
                       style: GoogleFonts.poppins(
                           textStyle: TextStyle(
                         fontSize: 40,

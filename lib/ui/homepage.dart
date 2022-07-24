@@ -318,25 +318,6 @@ class _HomePageState extends State<HomePage> {
                                           ? document.get("ItemName")
                                           : "NoData";
 
-                                      bool dec = true;
-                                      var deca = FirebaseFirestore.instance
-                                          .collection(_email)
-                                          .doc(temp)
-                                          .get()
-                                          .then((doc) {
-                                        if (doc.data()["fav"] == true) {
-                                          setState(() {
-                                            dec = true;
-                                          });
-                                          print(dec);
-                                        } else if (doc.data()["fav"] == false) {
-                                          setState(() {
-                                            dec = false;
-                                          });
-                                          print(dec);
-                                        }
-                                      });
-
                                       return AlertDialog(
                                         backgroundColor:
                                             Colors.black.withOpacity(0.8),
@@ -393,24 +374,43 @@ class _HomePageState extends State<HomePage> {
                                                     FavoriteButton(
                                                       valueChanged: (fav) {
                                                         setState(() {
-                                                          fav = !fav;
+                                                          // print("changed");
+                                                          fav = fav;
+                                                          print(fav);
                                                         });
-                                                        if (fav = true) {
-                                                          _addFav(_email, temp);
-                                                          print(fav.toString() +
-                                                              temp);
-                                                          print(dec);
-                                                        } else {
+                                                        if (fav == true) {
                                                           String temp = document
                                                               .get("ItemName");
+                                                          String temp1 =
+                                                              document.get(
+                                                                  "Description");
+                                                          String temp2 =
+                                                              document
+                                                                  .get("Price");
+                                                          String temp3 =
+                                                              document
+                                                                  .get("Image");
+
+                                                          _addFav(
+                                                              _email,
+                                                              temp,
+                                                              temp1,
+                                                              temp2,
+                                                              temp3);
+                                                          print(fav.toString() +
+                                                              temp);
+                                                          // print(dec);
+                                                        } else {
                                                           _removeFav(
-                                                              _email, temp);
+                                                            _email,
+                                                            temp,
+                                                          );
                                                           print("False");
                                                         }
                                                       },
                                                       isFavorite:
-                                                          dec ? true : false,
-                                                      iconColor: Colors.grey,
+                                                          fav ? true : false,
+                                                      iconColor: Colors.orange,
                                                     )
                                                   ],
                                                 ),
@@ -504,16 +504,17 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  void _addFav(_email, temp) {
+  void _addFav(_email, temp, temp1, temp2, temp3) {
     cref.doc(temp).set({
       "fav": true,
       "Item": temp,
+      "Descp": temp1,
+      "Price": temp2,
+      "Img": temp3
     });
   }
 
   void _removeFav(_email, temp) {
-    cref.doc(temp).set({
-      "fav": false,
-    });
+    cref.doc(temp).delete();
   }
 }
