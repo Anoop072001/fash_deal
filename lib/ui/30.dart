@@ -94,13 +94,13 @@ class _ThirtyState extends State<Thirty> {
                     Container(
                       height: 50,
                       child: Tab(
-                        text: "Small",
+                        text: "Navya",
                       ),
                     ),
                     Container(
                       height: 50,
                       child: Tab(
-                        text: "Medium",
+                        text: "Saphire",
                       ),
                     ),
                   ],
@@ -110,9 +110,9 @@ class _ThirtyState extends State<Thirty> {
           ),
         ),
         body: TabBarView(children: [
-          All(category: "Child"),
-          Large(category: "Child", size: "S"),
-          Large(category: "Child", size: "M"),
+          All(category: "30"),
+          Large(category: "30", size: "Navya"),
+          Large(category: "30", size: "Saphire"),
         ]),
       ),
     );

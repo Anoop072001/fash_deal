@@ -94,26 +94,26 @@ class _TwentyState extends State<Twenty> {
                     Container(
                       height: 50,
                       child: Tab(
-                        text: "Med",
+                        text: "BISMI HP",
                       ),
                     ),
                     Container(
                       height: 50,
                       child: Tab(
-                        text: "Large",
+                        text: "Pittapilli",
                       ),
                     ),
                     Container(
                       height: 50,
                       child: Tab(
-                        text: "XL",
+                        text: "McD",
                       ),
                     ),
                     Container(
                       height: 50,
                       child: Tab(
                         //icon: Image.asset(Constants.kHornIcon),
-                        text: "XXL",
+                        text: "GFootwear",
                       ),
                     ),
                   ],
@@ -123,11 +123,11 @@ class _TwentyState extends State<Twenty> {
           ),
         ),
         body: TabBarView(children: [
-          All(category: "Women"),
-          Large(category: "Women", size: "M"),
-          Large(category: "Women", size: "L"),
-          Large(category: "Women", size: "XL"),
-          Large(category: "Women", size: "XXL"),
+          All(category: "20"),
+          Large(category: "20", size: "BISMI HP"),
+          Large(category: "20", size: "Pittapilli"),
+          Large(category: "20", size: "McD"),
+          Large(category: "20", size: "GFootwear"),
         ]),
       ),
     );

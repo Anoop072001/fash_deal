@@ -127,11 +127,11 @@ class _TenState extends State<Ten> {
           ),
         ),
         body: TabBarView(children: [
-          All(category: "Men"),
-          Large(category: "Men", size: "MyG"),
-          Large(category: "Men", size: "Venus Digital"),
-          Large(category: "Men", size: "Elite SM"),
-          Large(category: "Men", size: "Kalyan HM"),
+          All(category: "10"),
+          Large(category: "10", size: "MyG"),
+          Large(category: "10", size: "Venus Digital"),
+          Large(category: "10", size: "Elite SM"),
+          Large(category: "10", size: "Kalyan HM"),
         ]),
       ),
     );
