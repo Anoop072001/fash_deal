@@ -456,7 +456,16 @@ class _HomePageState extends State<HomePage> {
                                                           primary:
                                                               Colors.orange),
                                                   onPressed: () {
-                                                    _launchURL();
+                                                    String url =
+                                                        "https://www.finlage.in/upi-pay/0000AV5";
+                                                    final uri = Uri.parse(url);
+                                                    if (canLaunchUrl(uri) !=
+                                                        false) {
+                                                      launchUrl(uri);
+                                                    } else {
+                                                      print(
+                                                          'Could not launch $url');
+                                                    }
                                                   },
                                                   child: Text(
                                                     "Buy",
@@ -509,15 +518,6 @@ class _HomePageState extends State<HomePage> {
         ),
       ]),
     );
-  }
-
-  void _launchURL() async {
-    String url = "https://www.finlage.in/upi-pay/0000AV5";
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      print('Could not launch $url');
-    }
   }
 
   void _addFav(_email, temp, temp1, temp2, temp3) {

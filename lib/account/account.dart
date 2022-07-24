@@ -78,7 +78,7 @@ class _AccountState extends State<Account> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(
-                    Icons.shop,
+                    Icons.shopping_cart,
                     color: Colors.white,
                   ),
                   SizedBox(

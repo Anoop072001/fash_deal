@@ -9,10 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Cart extends StatefulWidget {
-  //  Cart({Key key}) : super(key: key);
-
-  // final String category;
-
   @override
   State<Cart> createState() => _CartState();
 }
@@ -212,7 +208,14 @@ class _CartState extends State<Cart> {
                                                     85, 10, 85, 10),
                                                 primary: Colors.orange),
                                             onPressed: () {
-                                              _launchURL();
+                                              String url =
+                                                  "https://www.finlage.in/upi-pay/0000AV5";
+                                              final uri = Uri.parse(url);
+                                              if (canLaunchUrl(uri) != false) {
+                                                launchUrl(uri);
+                                              } else {
+                                                print('Could not launch $url');
+                                              }
                                             },
                                             child: Text(
                                               "Buy",
@@ -238,6 +241,7 @@ class _CartState extends State<Cart> {
                                                   _email,
                                                   temp,
                                                 );
+                                                Navigator.of(context).pop();
                                               },
                                               child: Row(
                                                 mainAxisAlignment:
@@ -277,16 +281,24 @@ class _CartState extends State<Cart> {
               return Container();
             }
           }),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          String url = "https://www.finlage.in/upi-pay/0000AV5";
+          final uri = Uri.parse(url);
+          if (canLaunchUrl(uri) != false) {
+            launchUrl(uri);
+          } else {
+            print('Could not launch $url');
+          }
+        },
+        backgroundColor: Colors.orange,
+        icon: Icon(Icons.shopping_cart_checkout),
+        label: Text(
+          "Buy Now",
+          style: TextStyle(color: Colors.white, fontSize: 15),
+        ),
+      ),
     );
-  }
-
-  void _launchURL() async {
-    String url = "https://www.finlage.in/upi-pay/0000AV5";
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      print('Could not launch $url');
-    }
   }
 
   void _removeFav(_email, temp) {
