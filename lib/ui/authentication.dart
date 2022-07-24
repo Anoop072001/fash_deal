@@ -98,6 +98,20 @@ class _AuthenticationState extends State<Authentication> {
                         await register(_emailField.text, _passwordField.text);
                     if (shouldNAvigate) {
                       Navigator.pushNamed(context, '/home');
+                    } else {
+                      final loginerror = SnackBar(
+                          backgroundColor: Colors.black,
+                          content: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "User already exists",
+                                style: TextStyle(
+                                    color: Colors.orange, fontSize: 17),
+                              ),
+                            ],
+                          ));
+                      ScaffoldMessenger.of(context).showSnackBar(loginerror);
                     }
                   },
                   child: Text("Register"),
@@ -120,6 +134,19 @@ class _AuthenticationState extends State<Authentication> {
                           await signIn(_emailField.text, _passwordField.text);
                       if (shouldNAvigate) {
                         Navigator.pushNamed(context, '/home');
+                      } else {
+                        final loginerror = SnackBar(
+                            backgroundColor: Colors.black,
+                            content: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Username or Password is Wrong!!",
+                                    style: TextStyle(
+                                        color: Colors.orange, fontSize: 17),
+                                  )
+                                ]));
+                        ScaffoldMessenger.of(context).showSnackBar(loginerror);
                       }
                     }
                   },
