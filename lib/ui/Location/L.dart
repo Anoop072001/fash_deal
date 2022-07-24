@@ -48,7 +48,9 @@ class _LargeState extends State<Large> {
                       document.data().toString().contains(size)) {
                     return ListTile(
                         title: Text(
-                          document.get("ItemName"),
+                          document.data().toString().contains("ItemName")
+                              ? document.get("ItemName")
+                              : "NoData",
                           // document.data()["ItemName"],
 
                           style: TextStyle(
@@ -60,15 +62,39 @@ class _LargeState extends State<Large> {
                             // Text(document.data()["Description"] ?? "No Data"),
                             Text(document.get("Description") ?? "No Data"),
                         // trailing: Text(document.data()["Price"] ?? "No Data"),
-                        trailing: Text(
-                            document.data().toString().contains("Price")
-                                ? document.get("Price")
-                                : "No Data"),
+                        trailing: Container(
+                          height: 35,
+                          width: 80,
+                          child: Center(
+                            child: Padding(
+                              padding: const EdgeInsets.all(1.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Text(
+                                    "Rs.",
+                                    style: TextStyle(
+                                        fontSize: 15, color: Colors.black),
+                                  ),
+                                  Text(
+                                    document.data().toString().contains("Price")
+                                        ? document.get("Price")
+                                        : "Nodata",
+                                    style: TextStyle(
+                                        fontSize: 15, color: Colors.black),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
                         leading: CircleAvatar(
                           radius: 30,
                           backgroundImage: NetworkImage(
                             // document.data()["Image"] ?? "No Data",
-                            document.get("Image") ?? "No Data",
+                            document.data().toString().contains("Image")
+                                ? document.get("Image")
+                                : "https://htmlcolorcodes.com/assets/images/colors/baby-blue-color-solid-background-1920x1080.png",
                           ),
                         ),
                         onTap: () {
@@ -77,7 +103,12 @@ class _LargeState extends State<Large> {
                               builder: (context) {
                                 bool fav = false;
                                 // String temp = document.data()["ItemName"];
-                                String temp = document.get("ItemName");
+                                String temp = document
+                                        .data()
+                                        .toString()
+                                        .contains("ItemName")
+                                    ? document.get("ItemName")
+                                    : "Nodata";
 
                                 bool dec = true;
                                 var deca = FirebaseFirestore.instance
@@ -102,7 +133,12 @@ class _LargeState extends State<Large> {
                                   backgroundColor:
                                       Colors.black.withOpacity(0.8),
                                   title: Text(
-                                    document.get("ItemName") ?? "No Data",
+                                    document
+                                            .data()
+                                            .toString()
+                                            .contains("ItemName")
+                                        ? document.get("ItemName")
+                                        : "No Data",
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 30,
@@ -131,8 +167,12 @@ class _LargeState extends State<Large> {
                                               Center(
                                                 child: Text(
                                                   // document.data()["Price"] ??
-                                                  document.get("Price") ??
-                                                      "no data",
+                                                  document
+                                                          .data()
+                                                          .toString()
+                                                          .contains("Price")
+                                                      ? document.get("Price")
+                                                      : "no data",
                                                   style: TextStyle(
                                                       fontWeight:
                                                           FontWeight.bold,

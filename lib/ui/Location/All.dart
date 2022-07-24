@@ -61,10 +61,31 @@ class _AllState extends State<All> {
                             ),
                           ],
                         ),
-                        trailing: Text(
-                          document.data().toString().contains("Price")
-                              ? document.get("Price")
-                              : "no data",
+                        trailing: Container(
+                          height: 35,
+                          width: 80,
+                          child: Center(
+                            child: Padding(
+                              padding: const EdgeInsets.all(1.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Text(
+                                    "Rs.",
+                                    style: TextStyle(
+                                        fontSize: 15, color: Colors.black),
+                                  ),
+                                  Text(
+                                    document.data().toString().contains("Price")
+                                        ? document.get("Price")
+                                        : "Nodata",
+                                    style: TextStyle(
+                                        fontSize: 15, color: Colors.black),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
                         ),
                         leading: CircleAvatar(
                           radius: 30,
@@ -79,7 +100,12 @@ class _AllState extends State<All> {
                               context: context,
                               builder: (context) {
                                 bool fav = false;
-                                String temp = document.get("ItemName");
+                                String temp = document
+                                        .data()
+                                        .toString()
+                                        .contains("ItemName")
+                                    ? document.get("ItemName")
+                                    : "NoData";
 
                                 bool dec = true;
                                 var deca = FirebaseFirestore.instance
@@ -103,16 +129,22 @@ class _AllState extends State<All> {
                                 return AlertDialog(
                                   backgroundColor:
                                       Colors.black.withOpacity(0.8),
-                                  title: Text(
-                                    document.get("ItemName") ??
-                                        "no data" +
-                                            " - " +
-                                            document.get("Size") ??
-                                        "No Data",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 30,
-                                        color: Colors.orange),
+                                  title: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        document
+                                                .data()
+                                                .toString()
+                                                .contains("ItemName")
+                                            ? document.get("ItemName")
+                                            : "no data",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 30,
+                                            color: Colors.orange),
+                                      ),
+                                    ],
                                   ),
                                   content: SingleChildScrollView(
                                     child: Column(
@@ -134,8 +166,12 @@ class _AllState extends State<All> {
                                             children: [
                                               Center(
                                                 child: Text(
-                                                  document.get("Price") ??
-                                                      "No data",
+                                                  document
+                                                          .data()
+                                                          .toString()
+                                                          .contains("ItemName")
+                                                      ? document.get("ItemName")
+                                                      : "Nodata",
                                                   style: TextStyle(
                                                       fontWeight:
                                                           FontWeight.bold,

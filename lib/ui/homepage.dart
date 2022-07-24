@@ -241,7 +241,9 @@ class _HomePageState extends State<HomePage> {
                               title: Text(
                                 // String name = (snapshot.data.data() as Map<String,dynamic>)['name']
                                 // hahaha ?? "No Data",
-                                document.get("ItemName") ?? "No Data",
+                                document.data().toString().contains("ItemName")
+                                    ? document.get("ItemName")
+                                    : "No Data",
 
                                 // (snapshot.data!.data() as Map<String, dynamic>)['status']
                                 // document.data() ?? "No Data",
@@ -271,15 +273,27 @@ class _HomePageState extends State<HomePage> {
                                 child: Center(
                                   child: Padding(
                                     padding: const EdgeInsets.all(1.0),
-                                    child: Text(
-                                      "",
-                                      // document.get("Price") ?? "No Data",
-
-                                      // document.data()["Price"] ?? "No Data",
-                                      // document.data() ?? "No Data",
-
-                                      style: TextStyle(
-                                          fontSize: 15, color: Colors.black),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Text(
+                                          "Rs.",
+                                          style: TextStyle(
+                                              fontSize: 15,
+                                              color: Colors.black),
+                                        ),
+                                        Text(
+                                          document
+                                                  .data()
+                                                  .toString()
+                                                  .contains("Price")
+                                              ? document.get("Price")
+                                              : "Nodata",
+                                          style: TextStyle(
+                                              fontSize: 15,
+                                              color: Colors.black),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),
@@ -287,14 +301,22 @@ class _HomePageState extends State<HomePage> {
                               leading: CircleAvatar(
                                   radius: 30,
                                   backgroundImage: NetworkImage(document
-                                          .get("Image") ??
-                                      "https://htmlcolorcodes.com/assets/images/colors/baby-blue-color-solid-background-1920x1080.png")),
+                                          .data()
+                                          .toString()
+                                          .contains("Image")
+                                      ? document.get("Image")
+                                      : "https://htmlcolorcodes.com/assets/images/colors/baby-blue-color-solid-background-1920x1080.png")),
                               onTap: () {
                                 return showDialog(
                                     context: context,
                                     builder: (context) {
                                       bool fav = false;
-                                      String temp = document.get("ItemName");
+                                      String temp = document
+                                              .data()
+                                              .toString()
+                                              .contains("ItemName")
+                                          ? document.get("ItemName")
+                                          : "NoData";
 
                                       bool dec = true;
                                       var deca = FirebaseFirestore.instance
@@ -319,25 +341,21 @@ class _HomePageState extends State<HomePage> {
                                         backgroundColor:
                                             Colors.black.withOpacity(0.8),
                                         title: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
                                           children: [
                                             Text(
-                                              document.get("ItemName") ??
-                                                  "no data",
+                                              document
+                                                      .data()
+                                                      .toString()
+                                                      .contains("ItemName")
+                                                  ? document.get("ItemName")
+                                                  : "Nodata",
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold,
                                                   fontSize: 30,
                                                   color: Colors.orange),
                                             ),
-                                            SizedBox(
-                                              width: 20,
-                                            ),
-                                            Text(
-                                              document.get("Size") ?? "No Data",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 30,
-                                                  color: Colors.orange),
-                                            )
                                           ],
                                         ),
                                         content: SingleChildScrollView(
