@@ -122,7 +122,7 @@ class _AllState extends State<All> {
                                             : "no data",
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold,
-                                            fontSize: 30,
+                                            fontSize: 28,
                                             color: Colors.orange),
                                       ),
                                     ],
@@ -146,18 +146,32 @@ class _AllState extends State<All> {
                                                 MainAxisAlignment.spaceEvenly,
                                             children: [
                                               Center(
-                                                child: Text(
-                                                  document
-                                                          .data()
-                                                          .toString()
-                                                          .contains("ItemName")
-                                                      ? document.get("ItemName")
-                                                      : "Nodata",
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      color: Colors.orange,
-                                                      fontSize: 25),
+                                                child: Row(
+                                                  children: [
+                                                    Text(
+                                                      // document.data()["Price"] ??
+                                                      "Rs.",
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.orange,
+                                                          fontSize: 25),
+                                                    ),
+                                                    Text(
+                                                      document
+                                                              .data()
+                                                              .toString()
+                                                              .contains("Price")
+                                                          ? document
+                                                              .get("Price")
+                                                          : "Nodata",
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.orange,
+                                                          fontSize: 25),
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
                                               FavoriteButton(

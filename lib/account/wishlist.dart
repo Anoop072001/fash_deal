@@ -140,7 +140,7 @@ class _CartState extends State<Cart> {
                                             : "no data",
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold,
-                                            fontSize: 30,
+                                            fontSize: 28,
                                             color: Colors.orange),
                                       ),
                                     ],
@@ -164,18 +164,31 @@ class _CartState extends State<Cart> {
                                                 MainAxisAlignment.spaceEvenly,
                                             children: [
                                               Center(
-                                                child: Text(
-                                                  document
-                                                          .data()
-                                                          .toString()
-                                                          .contains("Item")
-                                                      ? document.get("Item")
-                                                      : "Nodata",
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      color: Colors.orange,
-                                                      fontSize: 25),
+                                                child: Row(
+                                                  children: [
+                                                    Text(
+                                                      "Rs.",
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.orange,
+                                                          fontSize: 25),
+                                                    ),
+                                                    Text(
+                                                      document
+                                                              .data()
+                                                              .toString()
+                                                              .contains("Price")
+                                                          ? document
+                                                              .get("Price")
+                                                          : "Nodata",
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.orange,
+                                                          fontSize: 25),
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
                                             ],

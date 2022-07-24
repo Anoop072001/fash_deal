@@ -122,7 +122,7 @@ class _LargeState extends State<Large> {
                                         : "No Data",
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 30,
+                                        fontSize: 28,
                                         color: Colors.orange),
                                   ),
                                   content: SingleChildScrollView(
@@ -146,19 +146,33 @@ class _LargeState extends State<Large> {
                                                 MainAxisAlignment.spaceEvenly,
                                             children: [
                                               Center(
-                                                child: Text(
-                                                  // document.data()["Price"] ??
-                                                  document
-                                                          .data()
-                                                          .toString()
-                                                          .contains("Price")
-                                                      ? document.get("Price")
-                                                      : "no data",
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      color: Colors.orange,
-                                                      fontSize: 25),
+                                                child: Row(
+                                                  children: [
+                                                    Text(
+                                                      // document.data()["Price"] ??
+                                                      "Rs.",
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.orange,
+                                                          fontSize: 25),
+                                                    ),
+                                                    Text(
+                                                      // document.data()["Price"] ??
+                                                      document
+                                                              .data()
+                                                              .toString()
+                                                              .contains("Price")
+                                                          ? document
+                                                              .get("Price")
+                                                          : "no data",
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.orange,
+                                                          fontSize: 25),
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
                                               FavoriteButton(

@@ -334,7 +334,7 @@ class _HomePageState extends State<HomePage> {
                                                   : "Nodata",
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold,
-                                                  fontSize: 30,
+                                                  fontSize: 28,
                                                   color: Colors.orange),
                                             ),
                                           ],
@@ -360,15 +360,31 @@ class _HomePageState extends State<HomePage> {
                                                           .spaceEvenly,
                                                   children: [
                                                     Center(
-                                                      child: Text(
-                                                        document.get("Price") ??
-                                                            "no data",
-                                                        style: TextStyle(
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                            color:
-                                                                Colors.orange,
-                                                            fontSize: 25),
+                                                      child: Row(
+                                                        children: [
+                                                          Text(
+                                                            "Rs.",
+                                                            style: TextStyle(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                color: Colors
+                                                                    .orange,
+                                                                fontSize: 25),
+                                                          ),
+                                                          Text(
+                                                            document.get(
+                                                                    "Price") ??
+                                                                "no data",
+                                                            style: TextStyle(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                color: Colors
+                                                                    .orange,
+                                                                fontSize: 25),
+                                                          ),
+                                                        ],
                                                       ),
                                                     ),
                                                     FavoriteButton(
