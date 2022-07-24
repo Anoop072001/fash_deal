@@ -22,5 +22,6 @@ google_fonts: "^1.1.2" ,
 http: "^0.12.0+2" ,
 url_launcher: "^6.0.3" ,
 favorite_button: "^0.0.4" ,
+
 ## App Link
 [https://drive.google.com/drive/folders/1cK5GC5xEvmMQqnTC6VC42-htSKKRdyYT?usp=sharing]
