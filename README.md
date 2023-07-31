@@ -1,6 +1,6 @@
 
 # Q-Express
-This is a locla Shopping App which mainly focuses on connecting local customers and shopkeepers.This has really good UI.Has dedicated section according to the distance from customers to shop.
+This is a local Shopping App which mainly focuses on connecting local customers and shopkeepers.This has really good UI.Has dedicated section according to the distance from customers to shop.
 
 ## How it Works ?
 1. Open the app
